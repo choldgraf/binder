@@ -121,13 +121,16 @@ Do this:</p>
 <div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:cf6258237ff9</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p>These would <strong>not</strong> work:</p>
 <div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:latest</span>
+<div class="last highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:latest</span>
 </pre></div>
+</div>
 </div>
 </li>
 <li><p class="first">It must copy its contents to the <code class="docutils literal"><span class="pre">HOME</span></code> directory and change permissions.</p>

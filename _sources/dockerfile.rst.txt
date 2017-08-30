@@ -94,17 +94,19 @@ For a Dockerfile to work on binder, it must meet the following requirements:
 
       FROM jupyter/scipy-notebook:cf6258237ff9
 
-   These would **not** work:
+   .. note::
 
-   .. code-block:: Dockerfile
+       These would **not** work:
 
-      FROM jupyter/scipy-notebook
+       .. code-block:: Dockerfile
 
-   or
+          FROM jupyter/scipy-notebook
 
-   .. code-block:: Dockerfile
+       or
 
-      FROM jupyter/scipy-notebook:latest
+       .. code-block:: Dockerfile
+
+          FROM jupyter/scipy-notebook:latest
 
 3. It must copy its contents to the ``HOME`` directory and change permissions.
 
