@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using a Dockerfile &#8212; Binder 0.1b documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Binder Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-a-dockerfile">
+<h1>Using a Dockerfile<a class="headerlink" href="#using-a-dockerfile" title="Permalink to this headline">¶</a></h1>
+<p>Binder supports configuration files for package
+installation, environment specification, post-build shell scripts, and more.
+It should be possible to create the environment that you want <em>without</em>
+using a Dockerfile. For more information about the different environment
+configuration files that Binder can create, see the
+<a class="reference external" href="LINK">guide to creating Binder-ready repositories</a>.</p>
+<p>However, in case you cannot meet all your needs with these configuration
+files, it is also possible to use a Dockerfile to define your environment.
+This is considered an <strong>advanced use case</strong>, and we cannot guarantee that the
+Dockerfile will work.</p>
+<p>This guide will help you in preparing your Dockerfile so that it has the
+components needed to run JupyterHub, allowing it to work on Binder
+deployments.</p>
+<div class="section" id="when-should-you-use-a-dockerfile">
+<h2>When should you use a Dockerfile?<a class="headerlink" href="#when-should-you-use-a-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p>Below are a few use-cases where you <em>might</em> want to use a Dockerfile with
+Binder.</p>
+<div class="section" id="when-you-must-inherit-from-a-popular-docker-image">
+<h3>When you must inherit from a popular Docker image<a class="headerlink" href="#when-you-must-inherit-from-a-popular-docker-image" title="Permalink to this headline">¶</a></h3>
+<p>If you want to use a pre-existing Docker image, you may source it in your
+Dockerfile. For example, this code sources the Jupyter-Scipy notebook:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="c"># Note that there must be a tag</span>
+<span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:cf6258237ff9</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="LINKTOPREPARING">Preparing your Dockerfile</a> for instructions on how to
+do this properly.</p>
+</div>
+<div class="section" id="when-you-are-building-complex-software">
+<h3>When you are building complex software<a class="headerlink" href="#when-you-are-building-complex-software" title="Permalink to this headline">¶</a></h3>
+<p>Some software is simply too complex to be specified with Binder configuration
+files. For example, if you need to <em>DO SOME COOL SHIT ADD EXAMPLES</em>.</p>
+</div>
+<div class="section" id="when-you-re-using-a-language-that-is-not-directly-supported">
+<h3>When you&#8217;re using a language that is not directly supported<a class="headerlink" href="#when-you-re-using-a-language-that-is-not-directly-supported" title="Permalink to this headline">¶</a></h3>
+<p>Binder supports many languages, but not all of them. If your need to use
+a different language, it may be possible to accomplish this with a Dockerfile.</p>
+<p>For a list of languages that Binder supports with configuration files, see
+<a class="reference external" href="r2d">LINK TO REPO2DOCKER OR SOMETHING</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We welcome contributions to <code class="docutils literal"><span class="pre">repo2docker</span></code> to add support for new
+languages. If interested, please <a class="reference external" href="R2DLINK">open an issue</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Preparing your Dockerfile<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>For a Dockerfile to work on binder, it must meet the following requirements:</p>
+<ol class="arabic">
+<li><p class="first">It must install JupyterHub.</p>
+<p>JupyterHub is what will serve your Docker image to users.
+This is installed via <code class="docutils literal"><span class="pre">pip</span></code> and the <code class="docutils literal"><span class="pre">jupyterhub</span></code> package.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">JupyterHub only works with Python 3. You need to have python 3 available
+in your environment in order to install it.</p>
+</div>
+<p>The version of JupyterHub installed must match the version used by
+your Binder deployment. To ensure this, install it with the following code:</p>
+<blockquote>
+<div><div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="c"># NOTE: THIS DOES NOT ACTUALLY WORK RIGHT NOW, YOU HAVE TO DO ==0.7.2</span>
+<span class="c"># LET&#39;S FIX THAT</span>
+<span class="k">RUN</span> pip3 install --no-cache-dir <span class="nv">jupyterhub</span><span class="o">=</span><span class="si">${</span><span class="nv">JUPYTERHUB_VERSION</span><span class="si">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">It must explicitly specify a tag in the image you source.</p>
+<p>When sourcing a pre-existing Docker image with <code class="docutils literal"><span class="pre">FROM</span></code>,
+<strong>a tag is required</strong>. The tag <em>cannot</em> be <code class="docutils literal"><span class="pre">latest</span></code>.</p>
+<p>Here&#8217;s an example of a Dockerfile <code class="docutils literal"><span class="pre">FROM</span></code> statement that would work:
+Do this:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:cf6258237ff9</span>
+</pre></div>
+</div>
+<p>These would <strong>not</strong> work:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:latest</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">It must copy its contents to the <code class="docutils literal"><span class="pre">HOME</span></code> directory and change permissions.</p>
+<p>To make sure that your repository contents are available to users,
+you must copy all contents to <code class="docutils literal"><span class="pre">$(HOME)</span></code> and then make this folder
+owned by users. You can accomplish this by putting the following lines
+into your Dockerfile:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="c"># Make sure the contents of our repo are in ${HOME}</span>
+COPY . <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>
+USER root
+<span class="k">RUN</span> chown -R <span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span>:<span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>
+USER <span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>This is required because Docker will be default
+set the owner to <code class="docutils literal"><span class="pre">ROOT</span></code>, which would prevent users from editing files.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using a Dockerfile</a><ul>
+<li><a class="reference internal" href="#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a><ul>
+<li><a class="reference internal" href="#when-you-must-inherit-from-a-popular-docker-image">When you must inherit from a popular Docker image</a></li>
+<li><a class="reference internal" href="#when-you-are-building-complex-software">When you are building complex software</a></li>
+<li><a class="reference internal" href="#when-you-re-using-a-language-that-is-not-directly-supported">When you&#8217;re using a language that is not directly supported</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Preparing your Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Binder Documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dockerfile.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/dockerfile.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
