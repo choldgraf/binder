@@ -120,7 +120,7 @@ For a Dockerfile to work on binder, it must meet the following requirements:
        # Make sure the contents of our repo are in ${HOME}
        COPY . ${HOME}
        USER root
-       RUN chown -R ${NB_USER}:${NB_USER} ${HOME}
+       RUN chown -R ${NB_USER}:${NB_GID} ${HOME}
        USER ${NB_USER}
 
    This is required because Docker will be default
