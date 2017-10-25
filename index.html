@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Binder Documentation &#8212; Binder 0.1b documentation</title>
-    
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -35,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -49,20 +46,39 @@
 <p><strong>Binder</strong> allows you to create custom computing environments that can be shared
 and used by many remote users. This page provides information for those who
 wish to use a pre-existing Binder deployment (e.g., <code class="docutils literal"><span class="pre">mybinder.org</span></code>).</p>
-<p>If you&#8217;d like to create and administer your own Binder deployment, see the
-<a class="reference external" href="binderhub.readthedocs.org">BinderHub documentation</a>. The BinderHub
+<p>If you’d like to create and administer your own Binder deployment, see the
+<a class="reference external" href="http://binderhub.readthedocs.io">BinderHub documentation</a>. The BinderHub
 documentation guides you through creating a cluster, deploying BinderHub, and
 administering a BinderHub deployment.</p>
+<p>See the <a class="reference external" href="https://github.com/binder-examples">Binder Examples</a> GitHub
+organization for sample Binder repositories demonstrating its functionality.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Using a Dockerfile</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dockerfile.html#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-must-inherit-from-a-popular-docker-image">When you must inherit from a popular Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-are-building-complex-software">When you are building complex software</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-re-using-a-language-that-is-not-directly-supported">When you&#8217;re using a language that is not directly supported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-re-using-a-language-that-is-not-directly-supported">When you’re using a language that is not directly supported</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#id1">Preparing your Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#preparing-your-dockerfile">Preparing your Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#ensuring-reproducibility-with-dockerfiles">Ensuring reproducibility with Dockerfiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">Tips for ensuring reproducibility with Binder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#pin-your-dependencies">Pin your dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#using-dockerfiles">Using Dockerfiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-binder-community">What is the Binder community?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-binderhub">What is BinderHub?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-mybinder-org">What is <code class="docutils literal"><span class="pre">mybinder.org</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#is-mybinder-org-free">Is <code class="docutils literal"><span class="pre">mybinder.org</span></code> free?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-mybinder-org-be-free">How can <code class="docutils literal"><span class="pre">mybinder.org</span></code> be free?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-much-memory-am-i-given-when-using-binder">How much memory am I given when using Binder?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-a-binder">What is a Binder?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-can-i-do-if-mybinder-org-does-not-meet-my-needs">What can I do if <code class="docutils literal"><span class="pre">mybinder.org</span></code> does not meet my needs?</a></li>
 </ul>
 </li>
 </ul>
@@ -70,39 +86,43 @@ administering a BinderHub deployment.</p>
 <div class="section" id="what-can-i-do-with-binder">
 <h2>What can I do with Binder?<a class="headerlink" href="#what-can-i-do-with-binder" title="Permalink to this headline">¶</a></h2>
 <p>Binder makes it simple to generate reproducible computing environments from a
-GitHub repository. Binder uses the BinderHub technology to generate a Docker
+Git repository. Binder uses the BinderHub technology to generate a Docker
 image from this repository. The image will have all the components that you
 specify along with the Jupyter Notebooks inside. You will be able to share a URL
 with users that can immediately begin interacting with this environment via the
 cloud.</p>
 </div>
-<div class="section" id="how-do-i-prepare-a-repository-for-binder">
-<h2>How do I prepare a repository for Binder?<a class="headerlink" href="#how-do-i-prepare-a-repository-for-binder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparing-a-repository-for-binder">
+<span id="preparing-repositories"></span><h2>Preparing a repository for Binder<a class="headerlink" href="#preparing-a-repository-for-binder" title="Permalink to this headline">¶</a></h2>
 <p>You can do this by making sure your repo contains:</p>
 <ul class="simple">
 <li>A collection of Jupyter Notebooks. These notebooks will be made available to
 users of your Binder.</li>
 <li>One (or many) text files that specify the requirements of your code. For
 example, a <code class="docutils literal"><span class="pre">requirements.txt</span></code> or <code class="docutils literal"><span class="pre">environment.yml</span></code> file. See the
-<a class="reference external" href="repo2docker.readthedocs.org">repo2docker</a> documentation for a list of all
+<a class="reference external" href="https://repo2docker.readthedocs.org">repo2docker</a> documentation for a list of all
 the files and environments that are supported.</li>
 </ul>
 <p>All you need to do is include the files specified above in a GitHub repository.
-Once that&#8217;s done, navigate to <code class="docutils literal"><span class="pre">beta.mybinder.org</span></code> and insert the URL for
+Once that’s done, navigate to <code class="docutils literal"><span class="pre">beta.mybinder.org</span></code> and insert the URL for
 your git repository. Press <code class="docutils literal"><span class="pre">Launch</span></code> to automatically create your Binder.
 The Binder service will be automatically send you to a live Jupyter session
 connected to this repository.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If a previous version of the repository has already been built, Binder will
-only build a new one if the git hashes don&#8217;t match. If Binder <em>doesn&#8217;t</em> have
+only build a new one if the git hashes don’t match. If Binder <em>doesn’t</em> have
 to build a new repository, the process of connecting to the live
 computational environment is much faster.</p>
 </div>
 </div>
-<div class="section" id="how-do-i-generate-a-binder-link-to-share">
-<h2>How do I generate a Binder link to share?<a class="headerlink" href="#how-do-i-generate-a-binder-link-to-share" title="Permalink to this headline">¶</a></h2>
-<p>You may share a link that generates a Binder. The link structure is:</p>
+<div class="section" id="generating-a-sharable-binder-link">
+<h2>Generating a sharable Binder link<a class="headerlink" href="#generating-a-sharable-binder-link" title="Permalink to this headline">¶</a></h2>
+<p>You may share a link that generates a Binder. To generate a link for your
+Binder repository, type in the URL of the repository in the Binder UI and
+click the small carrot next to the <code class="docutils literal"><span class="pre">Launch</span></code> button. This will open a popup
+where you can display and select the text for your link.</p>
+<p>The link structure is:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>https://beta.mybinder.org/v2/gh/&lt;org-name&gt;/&lt;repo-name&gt;/&lt;branch|commit|tag&gt;?filepath=&lt;path/to/notebook.ipynb&gt;
 </pre></div>
 </div>
@@ -115,7 +135,7 @@ your Binder.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://repo2docker.readthedocs.org">repo2docker</a>, for quickly generating
 Docker images from a GitHub repository.</li>
-<li><a class="reference external" href="https://z2jh.jupyterhub.org">JupyterHub</a>, for connecting a built Docker
+<li><a class="reference external" href="https://z2jh.jupyter.org">JupyterHub</a>, for connecting a built Docker
 image to cloud computation and a user-facing web portal.</li>
 <li><a class="reference external" href="https://binderhub.readthedocs.org">BinderHub</a>, for gluing the above two
 tools together to create the Binder experience.</li>
@@ -136,8 +156,8 @@ tools together to create the Binder experience.</li>
   <ul>
 <li><a class="reference internal" href="#">Binder Documentation</a><ul>
 <li><a class="reference internal" href="#what-can-i-do-with-binder">What can I do with Binder?</a></li>
-<li><a class="reference internal" href="#how-do-i-prepare-a-repository-for-binder">How do I prepare a repository for Binder?</a></li>
-<li><a class="reference internal" href="#how-do-i-generate-a-binder-link-to-share">How do I generate a Binder link to share?</a></li>
+<li><a class="reference internal" href="#preparing-a-repository-for-binder">Preparing a repository for Binder</a></li>
+<li><a class="reference internal" href="#generating-a-sharable-binder-link">Generating a sharable Binder link</a></li>
 <li><a class="reference internal" href="#what-technology-does-binder-use">What technology does Binder use?</a></li>
 </ul>
 </li>
@@ -175,7 +195,7 @@ tools together to create the Binder experience.</li>
       &copy;2017, The Binder Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

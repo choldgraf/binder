@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Frequently Asked Questions &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tips for ensuring reproducibility with Binder" href="reproducibility.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<p>A collection of Frequently Asked Questions (and answers!)</p>
+<div class="section" id="what-is-the-binder-community">
+<h2>What is the Binder community?<a class="headerlink" href="#what-is-the-binder-community" title="Permalink to this headline">¶</a></h2>
+<p>A collection of people and technology that aim to make it easy to turn
+computational material (e.g. jupyter notebooks, R scripts, and environment
+files) into computational environments (a Docker image) and serve this
+environment through the cloud. The underlying technology that manages this
+process is called <a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub</a>.</p>
+</div>
+<div class="section" id="what-is-binderhub">
+<h2>What is BinderHub?<a class="headerlink" href="#what-is-binderhub" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub</a> is the server technology that
+turns computational material into
+interactive computational environments in the cloud. It utilizes the
+<a class="reference external" href="https://z2jh.jupyter.org">Kubernetes flavor of JupyterHub</a> in order to
+simplify the deployment process and make it easy to scale.</p>
+</div>
+<div class="section" id="what-is-mybinder-org">
+<h2>What is <code class="docutils literal"><span class="pre">mybinder.org</span></code>?<a class="headerlink" href="#what-is-mybinder-org" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">mybinder.org</span></code> is a single deployment of a BinderHub instance, managed by
+the Binder community. It serves as both a public service and a demonstration
+of the BinderHub technology, though it is by no means the only BinderHub
+in existence. If you’re interested in deploying your own BinderHub for you
+own uses, please see the <a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub documentation</a>
+and don’t hesitate to reach out to the <a class="reference external" href="https://gitter.im/jupyterhub/binder">Binder community</a>.</p>
+</div>
+<div class="section" id="is-mybinder-org-free">
+<h2>Is <code class="docutils literal"><span class="pre">mybinder.org</span></code> free?<a class="headerlink" href="#is-mybinder-org-free" title="Permalink to this headline">¶</a></h2>
+<p>Yes! Though note that it has relatively <a class="reference internal" href="#user-memory"><span class="std std-ref">limited computational resources</span></a>.</p>
+</div>
+<div class="section" id="how-can-mybinder-org-be-free">
+<h2>How can <code class="docutils literal"><span class="pre">mybinder.org</span></code> be free?<a class="headerlink" href="#how-can-mybinder-org-be-free" title="Permalink to this headline">¶</a></h2>
+<p>The Binder project has a grant from the Moore foundation to pay for the
+cloud resources running <code class="docutils literal"><span class="pre">mybinder.org</span></code>. In the future we hope to see more
+public BinderHub services running that can form a collection of community
+resources for interactive cloud computing.</p>
+</div>
+<div class="section" id="how-much-memory-am-i-given-when-using-binder">
+<span id="user-memory"></span><h2>How much memory am I given when using Binder?<a class="headerlink" href="#how-much-memory-am-i-given-when-using-binder" title="Permalink to this headline">¶</a></h2>
+<p>If you or another Binder user clicks on a Binder link, the <code class="docutils literal"><span class="pre">mybinder.org</span></code>
+deployment will run the linked repository. While running, you are guaranteed
+to have at least 1G of RAM. There is an upper-limit of 4GB (if you use more than
+4GB your kernel will be restarted).</p>
+</div>
+<div class="section" id="what-is-a-binder">
+<h2>What is a Binder?<a class="headerlink" href="#what-is-a-binder" title="Permalink to this headline">¶</a></h2>
+<p>A Binder is a GitHub repository that has been outfitted with the appropriate
+<a class="reference external" href="http://repo2docker.readthedocs.io/en/latest/samples.html">build files</a> so
+that its content can be connected with a BinderHub instance.</p>
+</div>
+<div class="section" id="what-can-i-do-if-mybinder-org-does-not-meet-my-needs">
+<h2>What can I do if <code class="docutils literal"><span class="pre">mybinder.org</span></code> does not meet my needs?<a class="headerlink" href="#what-can-i-do-if-mybinder-org-does-not-meet-my-needs" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">mybinder.org</span></code> uses software called <a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub</a> to carry out its services.
+This is an Open Source, community-driven project that can be deployed on
+most cloud providers. If you desire more computational resources for users or
+want guaranteed uptime, consider setting up your own BinderHub deployment.</p>
+<p>For more information, see the <a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub documentation</a>
+for instructions on how to deploy your own BinderHub, and the
+<a class="reference external" href="https://zero-to-jupyterhub.readthedocs.io/en/latest/user-experience.html#set-user-memory-and-cpu-guarantees-limits">Zero to JupyterHub</a>
+documentation for how to customize the user environment.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#what-is-the-binder-community">What is the Binder community?</a></li>
+<li><a class="reference internal" href="#what-is-binderhub">What is BinderHub?</a></li>
+<li><a class="reference internal" href="#what-is-mybinder-org">What is <code class="docutils literal"><span class="pre">mybinder.org</span></code>?</a></li>
+<li><a class="reference internal" href="#is-mybinder-org-free">Is <code class="docutils literal"><span class="pre">mybinder.org</span></code> free?</a></li>
+<li><a class="reference internal" href="#how-can-mybinder-org-be-free">How can <code class="docutils literal"><span class="pre">mybinder.org</span></code> be free?</a></li>
+<li><a class="reference internal" href="#how-much-memory-am-i-given-when-using-binder">How much memory am I given when using Binder?</a></li>
+<li><a class="reference internal" href="#what-is-a-binder">What is a Binder?</a></li>
+<li><a class="reference internal" href="#what-can-i-do-if-mybinder-org-does-not-meet-my-needs">What can I do if <code class="docutils literal"><span class="pre">mybinder.org</span></code> does not meet my needs?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="reproducibility.html" title="previous chapter">Tips for ensuring reproducibility with Binder</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/faq.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/faq.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

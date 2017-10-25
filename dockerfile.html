@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Using a Dockerfile &#8212; Binder 0.1b documentation</title>
-    
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -27,6 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tips for ensuring reproducibility with Binder" href="reproducibility.html" />
     <link rel="prev" title="Binder Documentation" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -35,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -44,13 +42,13 @@
           <div class="body" role="main">
             
   <div class="section" id="using-a-dockerfile">
-<h1>Using a Dockerfile<a class="headerlink" href="#using-a-dockerfile" title="Permalink to this headline">¶</a></h1>
+<span id="dockerfile"></span><h1>Using a Dockerfile<a class="headerlink" href="#using-a-dockerfile" title="Permalink to this headline">¶</a></h1>
 <p>Binder supports configuration files for package
 installation, environment specification, post-build shell scripts, and more.
 It should be possible to create the environment that you want <em>without</em>
 using a Dockerfile. For more information about the different environment
-configuration files that Binder can create, see the
-<a class="reference external" href="LINK">guide to creating Binder-ready repositories</a>.</p>
+configuration files that Binder can create, see
+<a class="reference internal" href="index.html#preparing-repositories"><span class="std std-ref">Preparing a repository for Binder</span></a>.</p>
 <p>However, in case you cannot meet all your needs with these configuration
 files, it is also possible to use a Dockerfile to define your environment.
 This is considered an <strong>advanced use case</strong>, and we cannot guarantee that the
@@ -58,6 +56,11 @@ Dockerfile will work.</p>
 <p>This guide will help you in preparing your Dockerfile so that it has the
 components needed to run JupyterHub, allowing it to work on Binder
 deployments.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Binder’s requirements for Dockerfiles are in beta and subject to change.
+Dockerfiles may break on Binder from time to time during the beta period.</p>
+</div>
 <div class="section" id="when-should-you-use-a-dockerfile">
 <h2>When should you use a Dockerfile?<a class="headerlink" href="#when-should-you-use-a-dockerfile" title="Permalink to this headline">¶</a></h2>
 <p>Below are a few use-cases where you <em>might</em> want to use a Dockerfile with
@@ -70,60 +73,54 @@ Dockerfile. For example, this code sources the Jupyter-Scipy notebook:</p>
 <span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:cf6258237ff9</span>
 </pre></div>
 </div>
-<p>See <a class="reference external" href="LINKTOPREPARING">Preparing your Dockerfile</a> for instructions on how to
+<p>See <a class="reference internal" href="#preparing-your-dockerfile">Preparing your Dockerfile</a> for instructions on how to
 do this properly.</p>
 </div>
 <div class="section" id="when-you-are-building-complex-software">
 <h3>When you are building complex software<a class="headerlink" href="#when-you-are-building-complex-software" title="Permalink to this headline">¶</a></h3>
-<p>Some software is simply too complex to be specified with Binder configuration
-files. For example, if you need to <em>DO SOME COOL SHIT ADD EXAMPLES</em>.</p>
+<p>Most Binder configurations can be achieved without a Dockerfile.
+Before resorting to a Dockerfile, we recommend trying to use <code class="docutils literal"><span class="pre">postBuild</span></code>
+commands for configuration.  See
+<a class="reference external" href="http://repo2docker.readthedocs.io/en/latest/">the repo2docker documentation</a>
+for examples.</p>
 </div>
 <div class="section" id="when-you-re-using-a-language-that-is-not-directly-supported">
-<h3>When you&#8217;re using a language that is not directly supported<a class="headerlink" href="#when-you-re-using-a-language-that-is-not-directly-supported" title="Permalink to this headline">¶</a></h3>
+<h3>When you’re using a language that is not directly supported<a class="headerlink" href="#when-you-re-using-a-language-that-is-not-directly-supported" title="Permalink to this headline">¶</a></h3>
 <p>Binder supports many languages, but not all of them. If your need to use
 a different language, it may be possible to accomplish this with a Dockerfile.</p>
 <p>For a list of languages that Binder supports with configuration files, see
-<a class="reference external" href="r2d">LINK TO REPO2DOCKER OR SOMETHING</a>.</p>
+<a class="reference external" href="http://repo2docker.readthedocs.io/en/latest/">the repo2docker documentation</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">We welcome contributions to <code class="docutils literal"><span class="pre">repo2docker</span></code> to add support for new
-languages. If interested, please <a class="reference external" href="R2DLINK">open an issue</a>.</p>
+languages. If interested, please
+<a class="reference external" href="https://github.com/jupyter/repo2docker/issues">open an issue</a>.</p>
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>Preparing your Dockerfile<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>For a Dockerfile to work on binder, it must meet the following requirements:</p>
+<div class="section" id="preparing-your-dockerfile">
+<h2>Preparing your Dockerfile<a class="headerlink" href="#preparing-your-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p>For a Dockerfile to work on Binder, it must meet the following requirements:</p>
 <ol class="arabic">
-<li><p class="first">It must install JupyterHub.</p>
-<p>JupyterHub is what will serve your Docker image to users.
-This is installed via <code class="docutils literal"><span class="pre">pip</span></code> and the <code class="docutils literal"><span class="pre">jupyterhub</span></code> package.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">JupyterHub only works with Python 3. You need to have python 3 available
-in your environment in order to install it.</p>
-</div>
-<p>The version of JupyterHub installed must match the version used by
-your Binder deployment. To ensure this, install it with the following code:</p>
-<blockquote>
-<div><div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="c"># NOTE: THIS DOES NOT ACTUALLY WORK RIGHT NOW, YOU HAVE TO DO ==0.7.2</span>
-<span class="c"># LET&#39;S FIX THAT</span>
-<span class="k">RUN</span> pip3 install --no-cache-dir <span class="nv">jupyterhub</span><span class="o">=</span><span class="si">${</span><span class="nv">JUPYTERHUB_VERSION</span><span class="si">}</span>
+<li><p class="first">It must install a recent version of Jupyter Notebook.
+This should be installed via <code class="docutils literal"><span class="pre">pip</span></code> with the <cite>notebook</cite> package.
+So in your dockerfile, you should have a command such as:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">RUN</span> pip install --no-cache-dir <span class="nv">notebook</span><span class="o">==</span><span class="m">5</span>.*
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p class="first">It must explicitly specify a tag in the image you source.</p>
 <p>When sourcing a pre-existing Docker image with <code class="docutils literal"><span class="pre">FROM</span></code>,
-<strong>a tag is required</strong>. The tag <em>cannot</em> be <code class="docutils literal"><span class="pre">latest</span></code>.</p>
-<p>Here&#8217;s an example of a Dockerfile <code class="docutils literal"><span class="pre">FROM</span></code> statement that would work:
-Do this:</p>
+<strong>a tag is required</strong>. The tag <em>cannot</em> be <code class="docutils literal"><span class="pre">latest</span></code>. Note that tag
+naming conventions differ between images, so we recommend using
+the SHA tag of the image.</p>
+<p>Here’s an example of a Dockerfile <code class="docutils literal"><span class="pre">FROM</span></code> statement that would work.</p>
 <div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook:cf6258237ff9</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>These would <strong>not</strong> work:</p>
+<p>The following examples would <strong>not</strong> work:</p>
 <div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> jupyter/scipy-notebook</span>
 </pre></div>
 </div>
@@ -133,22 +130,53 @@ Do this:</p>
 </div>
 </div>
 </li>
-<li><p class="first">It must copy its contents to the <code class="docutils literal"><span class="pre">HOME</span></code> directory and change permissions.</p>
+<li><p class="first">It must set up a user whose uid is <cite>1000</cite>.
+It is bad practice to run processes in containers as root, and on binder
+we do not allow root container processes. If you are using an ubuntu or
+debian based container image, you can create a user easily with the following
+directives somewhere in your Dockerfile:</p>
+<div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="k">ENV</span><span class="s"> NB_USER jovyan</span>
+<span class="k">ENV</span><span class="s"> NB_UID 1000</span>
+<span class="k">ENV</span><span class="s"> HOME /home/${NB_USER}</span>
+
+<span class="k">RUN</span> adduser --disabled-password <span class="se">\</span>
+    --gecos <span class="s2">&quot;Default user&quot;</span> <span class="se">\</span>
+    --uid <span class="si">${</span><span class="nv">NB_UID</span><span class="si">}</span> <span class="se">\</span>
+    <span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span>
+</pre></div>
+</div>
+<p>This is the user that will be running the jupyter notebook process
+when your repo is launched with binder. So any files you would like to
+be writeable by the launched binder notebook should be owned by this user.</p>
+</li>
+<li><p class="first">It must copy its contents to the <code class="docutils literal"><span class="pre">$HOME</span></code> directory and change permissions.</p>
 <p>To make sure that your repository contents are available to users,
-you must copy all contents to <code class="docutils literal"><span class="pre">$(HOME)</span></code> and then make this folder
-owned by users. You can accomplish this by putting the following lines
-into your Dockerfile:</p>
+you must copy all contents to <code class="docutils literal"><span class="pre">$HOME</span></code> and then make this folder
+owned by the user you created in step 3. If you used the snippet provided
+in step 3, you can accomplish this copying with the following snippet:</p>
 <div class="highlight-Dockerfile"><div class="highlight"><pre><span></span><span class="c"># Make sure the contents of our repo are in ${HOME}</span>
 COPY . <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>
 USER root
-<span class="k">RUN</span> chown -R <span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span>:<span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>
+<span class="k">RUN</span> chown -R <span class="si">${</span><span class="nv">NB_UID</span><span class="si">}</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>
 USER <span class="si">${</span><span class="nv">NB_USER</span><span class="si">}</span>
 </pre></div>
 </div>
-<p>This is required because Docker will be default
-set the owner to <code class="docutils literal"><span class="pre">ROOT</span></code>, which would prevent users from editing files.</p>
+<p>This chown is required because Docker will be default
+set the owner to <code class="docutils literal"><span class="pre">root</span></code>, which would prevent users from editing files.</p>
 </li>
 </ol>
+</div>
+<div class="section" id="ensuring-reproducibility-with-dockerfiles">
+<h2>Ensuring reproducibility with Dockerfiles<a class="headerlink" href="#ensuring-reproducibility-with-dockerfiles" title="Permalink to this headline">¶</a></h2>
+<p>Ensuring that your Binder environment is reproducible requires extra
+considerations when using a Dockerfile. This section provides some guidelines
+for making sure your Binder environment does not change in unexpected ways.</p>
+<p>As mentioned above, make sure that you source your Dockerfile from a <strong>tag</strong>
+of another image. This ensures that you will continue building off of
+the same image even if the image is updated to a new version.</p>
+<p>Next, make sure that all packages installed with your Dockerfile
+are pinned to specific versions. You should do this with the the image you are
+sourcing as well.</p>
 </div>
 </div>
 
@@ -167,10 +195,11 @@ set the owner to <code class="docutils literal"><span class="pre">ROOT</span></c
 <li><a class="reference internal" href="#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a><ul>
 <li><a class="reference internal" href="#when-you-must-inherit-from-a-popular-docker-image">When you must inherit from a popular Docker image</a></li>
 <li><a class="reference internal" href="#when-you-are-building-complex-software">When you are building complex software</a></li>
-<li><a class="reference internal" href="#when-you-re-using-a-language-that-is-not-directly-supported">When you&#8217;re using a language that is not directly supported</a></li>
+<li><a class="reference internal" href="#when-you-re-using-a-language-that-is-not-directly-supported">When you’re using a language that is not directly supported</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1">Preparing your Dockerfile</a></li>
+<li><a class="reference internal" href="#preparing-your-dockerfile">Preparing your Dockerfile</a></li>
+<li><a class="reference internal" href="#ensuring-reproducibility-with-dockerfiles">Ensuring reproducibility with Dockerfiles</a></li>
 </ul>
 </li>
 </ul>
@@ -179,6 +208,7 @@ set the owner to <code class="docutils literal"><span class="pre">ROOT</span></c
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Binder Documentation</a></li>
+      <li>Next: <a href="reproducibility.html" title="next chapter">Tips for ensuring reproducibility with Binder</a></li>
   </ul></li>
 </ul>
 </div>
@@ -207,7 +237,7 @@ set the owner to <code class="docutils literal"><span class="pre">ROOT</span></c
       &copy;2017, The Binder Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
