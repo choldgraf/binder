@@ -6,11 +6,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Binder Documentation &#8212; Binder 0.1b documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '../',
         VERSION:     '0.1b',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -18,15 +18,14 @@
         SOURCELINK_SUFFIX: '.txt'
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Using a Dockerfile" href="dockerfile.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -51,71 +50,6 @@ wish to use a pre-existing Binder deployment (e.g., <code class="docutils litera
 documentation guides you through creating a cluster, deploying BinderHub, and
 administering a BinderHub deployment.</p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Using a Dockerfile</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-must-inherit-from-a-popular-docker-image">When you must inherit from a popular Docker image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-are-building-complex-software">When you are building complex software</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dockerfile.html#when-you-re-using-a-language-that-is-not-directly-supported">When you’re using a language that is not directly supported</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#preparing-your-dockerfile">Preparing your Dockerfile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#ensuring-reproducibility-with-dockerfiles">Ensuring reproducibility with Dockerfiles</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="all_readmes.html">Sample Binder Repositories</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#julia-python">julia-python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#julia-and-python-environments">Julia and Python environments</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#requirements">requirements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#example-binder-with-requirements-txt">Example Binder with requirements.txt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#notes">Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#conda">conda</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#example-binder-with-environment-yml">Example Binder with environment.yml</a></li>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#notes">Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#remote-storage">remote_storage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#example-binder-using-remote-storage">Example Binder using remote storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#notes">Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#latex">latex</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#using-latex-with-binder">Using latex with Binder</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#jupyterlab">jupyterlab</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#jupyterlab-binder">JupyterLab + Binder</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#dockerfile-r">dockerfile-r</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#specifying-an-r-environment-with-binder-using-a-dockerfile">Specifying an R environment with Binder using a Dockerfile</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#dockerfile-rstudio">dockerfile-rstudio</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#rstudio-in-binder-using-a-dockerfile">RStudio in Binder using a Dockerfile</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#python2-runtime">python2_runtime</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#python-2-with-runtime-txt">Python 2 with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#jupyter-extension">jupyter-extension</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#jupyter-extensions-with-binder">Jupyter Extensions with Binder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#ipywidgets">ipywidgets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#python-markdown">python-markdown</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="all_readmes.html#python-conda-pip">python-conda_pip</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="all_readmes.html#using-anaconda-with-pip-in-the-same-build">Using anaconda with pip in the same build</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="section" id="what-can-i-do-with-binder">
 <h2>What can I do with Binder?<a class="headerlink" href="#what-can-i-do-with-binder" title="Permalink to this headline">¶</a></h2>
@@ -223,10 +157,10 @@ documentation for how to customize the user environment.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="#">
-              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
             </a></p>
-  <h3><a href="#">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Binder Documentation</a><ul>
 <li><a class="reference internal" href="#what-can-i-do-with-binder">What can I do with Binder?</a></li>
@@ -246,21 +180,20 @@ documentation for how to customize the user environment.</p>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="dockerfile.html" title="next chapter">Using a Dockerfile</a></li>
+  <li><a href="../index.html">Documentation overview</a><ul>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
+      <li><a href="../_sources/.ipynb_checkpoints/index-checkpoint.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -280,7 +213,7 @@ documentation for how to customize the user environment.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/index.rst.txt"
+      <a href="../_sources/.ipynb_checkpoints/index-checkpoint.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
