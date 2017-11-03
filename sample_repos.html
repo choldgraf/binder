@@ -1,0 +1,388 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sample Binder Repositories &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Using a Dockerfile" href="dockerfile.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sample-binder-repositories">
+<span id="sample-binder-repositories"></span><h1>Sample Binder Repositories<a class="headerlink" href="#sample-binder-repositories" title="Permalink to this headline">¶</a></h1>
+<p>Below we list several sample Binder repositories that
+demonstrate how to compose build files in order to create
+Binders with varying environments.</p>
+<div class="section" id="julia-and-python-environments">
+<span id="julia-and-python-environments"></span><h2>Julia and Python environments<a class="headerlink" href="#julia-and-python-environments" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/julia_python/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/julia-python">repo link</a></p>
+<p>This example shows how you can install a Julia and Python environment side-by-side.
+In this repository are <em>both</em> an <code class="docutils literal"><span class="pre">environment.yml</span></code> file as well as a <code class="docutils literal"><span class="pre">REQURE</span></code> file.
+The former corresponds to an anaconda python environment, and the latter corresponds
+to a Julia environment. Both kernels will be available to you in a built Binder
+environment.</p>
+<div class="section" id="files">
+<span id="files"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">REQUIRE</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">julia</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">python</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">julia</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">python</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python-environment-with-requirements-txt">
+<span id="python-environment-with-requirements-txt"></span><h2>Python environment with requirements.txt<a class="headerlink" href="#python-environment-with-requirements-txt" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/requirements/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/requirements">repo link</a></p>
+<p>A Binder-compatible repo with a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file.</p>
+<p>Access this Binder at the following URL:</p>
+<p>http://mybinder.org/v2/gh/binder-examples/requirements/master</p>
+<div class="section" id="notes">
+<span id="notes"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">requirements.txt</span></code> file should list all Python libraries that your notebooks
+depend on, and they will be installed using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>The base Binder image contains no extra dependencies, so be as
+explicit as possible in defining the packages that you need. This includes
+specifying explict versions wherever possible.</p>
+<p>In this example we include the library <code class="docutils literal"><span class="pre">seaborn</span></code>, and our notebook uses it
+to plot a figure.</p>
+</div>
+<div class="section" id="files">
+<span id="id1"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="anaconda-environment-with-environment-yml">
+<span id="anaconda-environment-with-environment-yml"></span><h2>Anaconda environment with environment.yml<a class="headerlink" href="#anaconda-environment-with-environment-yml" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/conda_environment/v1.0?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/conda">repo link</a></p>
+<p>A Binder-compatible repo with an <code class="docutils literal"><span class="pre">environment.yml</span></code> file.</p>
+<p>Access this Binder at the following URL:</p>
+<p>http://mybinder.org/v2/gh/binder-examples/conda_environment/v1.0?filepath=index.ipynb</p>
+<div class="section" id="notes">
+<span id="id2"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">environment.yml</span></code> file should list all Python libraries on which your notebooks
+depend, specified as though they were created using the following <code class="docutils literal"><span class="pre">conda</span></code> commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">example</span><span class="o">-</span><span class="n">environment</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">&gt;</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Note that the only libraries available to you will be the ones specified in
+the <code class="docutils literal"><span class="pre">environment.yml</span></code>, so be sure to include everything that you need!</p>
+</div>
+<div class="section" id="files">
+<span id="id3"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-binder-using-remote-storage">
+<span id="example-binder-using-remote-storage"></span><h2>Example Binder using remote storage<a class="headerlink" href="#example-binder-using-remote-storage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/remote_storage/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/remote_storage">repo link</a></p>
+<p>A Binder-compatible repo that shows accessing data from remote sources.</p>
+<p>Access this Binder at the following URL:</p>
+<p>http://mybinder.org/v2/gh/binder-examples/remote_storage/master</p>
+<div class="section" id="notes">
+<span id="id4"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>The notebooks use <code class="docutils literal"><span class="pre">boto</span></code> and <code class="docutils literal"><span class="pre">requests</span></code> to load both images and tables from S3.
+The image loading makes use of <code class="docutils literal"><span class="pre">PIL</span></code> and the table loading
+makes use of <code class="docutils literal"><span class="pre">pandas</span></code>.</p>
+</div>
+<div class="section" id="files">
+<span id="id5"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-latex-with-binder">
+<span id="using-latex-with-binder"></span><h2>Using latex with Binder<a class="headerlink" href="#using-latex-with-binder" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/latex/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/latex">repo link</a></p>
+<p>This repository demonstrates how to install latex alongside matplotlib
+for Binder. This requires a few different build components:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">apt.txt</span></code> for apt-installing the latex components</li>
+<li><code class="docutils literal"><span class="pre">requirements.txt</span></code> for installing the python dependencies</li>
+<li><code class="docutils literal"><span class="pre">postBuild</span></code> for forcing matplotlib to build the font cache</li>
+</ul>
+<p>Thanks to &#64;m-weigand for giving
+<a class="reference external" href="https://github.com/m-weigand/binder-example-latex-mpl/blob/master/index.ipynb">inspiration for this repo</a>!</p>
+<div class="section" id="files">
+<span id="id6"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">postBuild</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="jupyterlab-binder">
+<span id="jupyterlab-binder"></span><h2>JupyterLab + Binder<a class="headerlink" href="#jupyterlab-binder" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/jupyterlab/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyterlab">repo link</a></p>
+<p>Demonstrating how to get JupyterLab working with Binder.</p>
+<p>Currently, you may enable JupyterLab in Binder with the following steps:</p>
+<ol class="simple">
+<li>Launch a Binder instance (e.g., by clicking the Binder badge below).</li>
+<li>Replace <code class="docutils literal"><span class="pre">tree</span></code> at the end of your URL with <code class="docutils literal"><span class="pre">lab</span></code>.</li>
+<li>That's it!</li>
+</ol>
+<p>This repository installs several JupyterLab extensions via a <code class="docutils literal"><span class="pre">postBuild</span></code> script, allowing
+you to use JupyterLab's extensions and widgets functionality.</p>
+<div class="section" id="files">
+<span id="id7"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">binder</span>
+<span class="n">geojson</span><span class="o">-</span><span class="n">extension</span><span class="o">.</span><span class="n">geojson</span>
+<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="specifying-an-r-environment-with-binder-using-a-dockerfile">
+<span id="specifying-an-r-environment-with-binder-using-a-dockerfile"></span><h2>Specifying an R environment with Binder using a Dockerfile<a class="headerlink" href="#specifying-an-r-environment-with-binder-using-a-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/dockerfile-r/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/dockerfile-r">repo link</a></p>
+<p>While Python and Julia are the only two languages natively supported with
+build files, it's possible to create R Kernels for use with Binder as well.</p>
+<p>This repository shows how you can use a Dockerfile to install R and
+connect it with Jupyter. This lets you run R code from within the Jupyter Notebooks.</p>
+<div class="section" id="files">
+<span id="id8"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
+<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rstudio-in-binder-using-a-dockerfile">
+<span id="rstudio-in-binder-using-a-dockerfile"></span><h2>RStudio in Binder using a Dockerfile<a class="headerlink" href="#rstudio-in-binder-using-a-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/dockerfile-rstudio/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/dockerfile-rstudio">repo link</a></p>
+<p>This is a proof-of-concept to deploy a Binder that exposes the
+RStudio UI instead of a Jupyter Notebook. It also installs
+several packages from the tidyverse, and includes a demo
+script to show off functionality.</p>
+<p>To start your RStudio session, click on &quot;new&quot;, and at the bottom will
+be <code class="docutils literal"><span class="pre">RStudio</span> <span class="pre">Session</span></code>. Click that and you're ready to go!</p>
+<p><em>Special thanks to Ryan Lovett (&#64;ryanlovett) for figuring out
+RStudio support with JupyterHub</em></p>
+<div class="section" id="files">
+<span id="id9"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
+<span class="n">index</span><span class="o">.</span><span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python-2-with-runtime-txt">
+<span id="python-2-with-runtime-txt"></span><h2>Python 2 with <code class="docutils literal"><span class="pre">runtime.txt</span></code><a class="headerlink" href="#python-2-with-runtime-txt" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/python2_runtime/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/python2_runtime">repo link</a></p>
+<p>We can specify various runtime parameters with a <code class="docutils literal"><span class="pre">runtime.txt</span></code> file. In this
+repository, we demonstrate how to install python 2 with this environment.</p>
+<div class="section" id="files">
+<span id="id10"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">runtime</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="jupyter-extensions-with-binder">
+<span id="jupyter-extensions-with-binder"></span><h2>Jupyter Extensions with Binder<a class="headerlink" href="#jupyter-extensions-with-binder" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/jupyter-extension/master?filepath=index.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyter-extension">repo link</a></p>
+<p>This example demonstrates how to enable Jupyter extensions with Binder. We'll
+cover a few in this repo because some are idiosyncratic in how they're enabled.</p>
+<p>We accomplish each using a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file to install the extensions,
+then a <code class="docutils literal"><span class="pre">postBuild</span></code> file to enable them.</p>
+<div class="section" id="ipywidgets">
+<span id="ipywidgets"></span><h3>ipywidgets<a class="headerlink" href="#ipywidgets" title="Permalink to this headline">¶</a></h3>
+<p>Ipywidgets lets you create interactive widgets in your notebook.
+Installation is fairly straightforward. You install the python package,
+then enable the extension.</p>
+</div>
+<div class="section" id="python-markdown">
+<span id="python-markdown"></span><h3>python-markdown<a class="headerlink" href="#python-markdown" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">python-markdown</span></code> extension is useful for interweaving computational
+cells (e.g., python cells) and markdown cells. As this extension automatically
+runs code in the notebook, you need to be sure to &quot;trust&quot; the notebooks in your
+<code class="docutils literal"><span class="pre">postBuild</span></code> script (see the script in this repo for example).</p>
+</div>
+<div class="section" id="files">
+<span id="id11"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">postBuild</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-anaconda-with-pip-in-the-same-build">
+<span id="using-anaconda-with-pip-in-the-same-build"></span><h2>Using anaconda with pip in the same build<a class="headerlink" href="#using-anaconda-with-pip-in-the-same-build" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/python-conda_pip/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a>
+| <a class="reference external" href="https://github.com/binder-examples/python-conda_pip">repo link</a></p>
+<p>If you use <code class="docutils literal"><span class="pre">environment.yml</span></code>, then Binder will use a Miniconda distribution
+to install your packages. However, you may still want to use <code class="docutils literal"><span class="pre">pip</span></code>. In
+this case, you should <strong>not</strong> use a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file, but instead use
+a <code class="docutils literal"><span class="pre">-</span> <span class="pre">pip</span></code> section in <code class="docutils literal"><span class="pre">environment.yml</span></code>. This repository is an example of how
+to construct your <code class="docutils literal"><span class="pre">environment.yml</span></code> file to accomplish this.</p>
+<p>Access this Binder at the following URL:</p>
+<p>http://mybinder.org/v2/gh/binder-examples/python-conda_pip/master?filepath=index.ipynb</p>
+<div class="section" id="files">
+<span id="id12"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sample Binder Repositories</a><ul>
+<li><a class="reference internal" href="#julia-and-python-environments">Julia and Python environments</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-environment-with-requirements-txt">Python environment with requirements.txt</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anaconda-environment-with-environment-yml">Anaconda environment with environment.yml</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-binder-using-remote-storage">Example Binder using remote storage</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-latex-with-binder">Using latex with Binder</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jupyterlab-binder">JupyterLab + Binder</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#specifying-an-r-environment-with-binder-using-a-dockerfile">Specifying an R environment with Binder using a Dockerfile</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rstudio-in-binder-using-a-dockerfile">RStudio in Binder using a Dockerfile</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-2-with-runtime-txt">Python 2 with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jupyter-extensions-with-binder">Jupyter Extensions with Binder</a><ul>
+<li><a class="reference internal" href="#ipywidgets">ipywidgets</a></li>
+<li><a class="reference internal" href="#python-markdown">python-markdown</a></li>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-anaconda-with-pip-in-the-same-build">Using anaconda with pip in the same build</a><ul>
+<li><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dockerfile.html" title="previous chapter">Using a Dockerfile</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sample_repos.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/sample_repos.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

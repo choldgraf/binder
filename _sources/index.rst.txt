@@ -18,7 +18,7 @@ administering a BinderHub deployment.
    :maxdepth: 2
 
    dockerfile
-   all_readmes
+   sample_repos
 
 What can I do with Binder?
 --------------------------
