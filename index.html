@@ -52,8 +52,9 @@ documentation guides you through creating a cluster, deploying BinderHub, and
 administering a BinderHub deployment.</p>
 <p>See the <a class="reference external" href="https://github.com/binder-examples">Binder Examples</a> GitHub
 organization for sample Binder repositories demonstrating its functionality.</p>
-<div class="section" id="site-contents">
-<h2>Site contents<a class="headerlink" href="#site-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-binder">
+<h2>Using Binder<a class="headerlink" href="#using-binder" title="Permalink to this headline">¶</a></h2>
+<p>The following sections cover the basics of how to use a Binder service.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Welcome to the Binder documentation</a><ul>
@@ -66,17 +67,15 @@ organization for sample Binder repositories demonstrating its functionality.</p>
 <li class="toctree-l2"><a class="reference internal" href="preparing.html#use-cases">Use cases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Using a Dockerfile</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#preparing-your-dockerfile">Preparing your Dockerfile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#ensuring-reproducibility-with-dockerfiles">Ensuring reproducibility with Dockerfiles</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">Tips for reproducibility</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#pin-dependencies">Pin dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#using-dockerfiles">Using Dockerfiles</a></li>
-</ul>
-</li>
+</div>
+</div>
+<div class="section" id="sample-repositories">
+<h2>Sample repositories<a class="headerlink" href="#sample-repositories" title="Permalink to this headline">¶</a></h2>
+<p>The following is a list of sample repositories showing off various things
+you can do with Binder.</p>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="sample_repos.html">Sample Binder Repositories</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#julia-and-python-environments">Julia and Python environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#python-environment-with-requirements-txt">Python environment with requirements.txt</a></li>
@@ -90,9 +89,28 @@ organization for sample Binder repositories demonstrating its functionality.</p>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#enabling-jupyter-extensions-with-post-build-commands">Enabling Jupyter Extensions with post-build commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#using-anaconda-with-pip-in-the-same-build">Using anaconda with pip in the same build</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#creating-interactive-presentations-on-binder-with-rise">Creating interactive presentations on Binder with RISE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#demo">demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#appmode-in-binder">Appmode in Binder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#jupyter-docker-stacks">jupyter-docker-stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#creating-webapps-with-binder">Creating webapps with Binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#using-a-docker-image-from-the-jupyter-docker-stacks-repository">Using a Docker image from the Jupyter <code class="docutils literal"><span class="pre">docker-stacks</span></code> repository</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<p>These sections cover more advanced topics in the Binder ecosystem, as well
+as resources for more information.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dockerfile.html">Using a Dockerfile</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#when-should-you-use-a-dockerfile">When should you use a Dockerfile?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#preparing-your-dockerfile">Preparing your Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dockerfile.html#ensuring-reproducibility-with-dockerfiles">Ensuring reproducibility with Dockerfiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">Tips for reproducibility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#pin-dependencies">Pin dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproducibility.html#using-dockerfiles">Using Dockerfiles</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
@@ -128,7 +146,9 @@ organization for sample Binder repositories demonstrating its functionality.</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Binder Documentation</a><ul>
-<li><a class="reference internal" href="#site-contents">Site contents</a></li>
+<li><a class="reference internal" href="#using-binder">Using Binder</a></li>
+<li><a class="reference internal" href="#sample-repositories">Sample repositories</a></li>
+<li><a class="reference internal" href="#advanced">Advanced</a></li>
 </ul>
 </li>
 </ul>

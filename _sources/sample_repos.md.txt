@@ -332,16 +332,8 @@ index.ipynb
 |
 
 ```
-## demo
-### Files
-```
-```
-```eval_rst
-|
-
-```
 ---------
-## Appmode in Binder
+## Creating webapps with Binder
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/binder-examples/appmode/master?urlpath=apps%2Findex.ipynb) | [repo link](https://github.com/binder-examples/appmode)
 
@@ -362,7 +354,7 @@ postBuild
 
 ```
 ---------
-## jupyter-docker-stacks
+## Using a Docker image from the Jupyter `docker-stacks` repository
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/binder-examples/jupyter-stacks/master) | [repo link](https://github.com/binder-examples/jupyter-stacks)
 
