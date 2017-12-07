@@ -1,5 +1,5 @@
-Tips for ensuring reproducibility with Binder
-=============================================
+Tips for reproducibility
+========================
 
 Binder will create a new Docker image the first time is run with a repository.
 From then on, a new image will only be created if the commit hash changes
@@ -7,8 +7,8 @@ From then on, a new image will only be created if the commit hash changes
 are some tips to ensure reproducibility of your Binder links even if you must
 re-build your repository image:
 
-Pin your dependencies
----------------------
+Pin dependencies
+----------------
 
 When you install a dependency, include its version number (depending on the
 language you use, the exact syntax may vary). E.g., don't just specify ``numpy``,

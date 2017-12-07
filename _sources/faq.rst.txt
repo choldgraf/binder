@@ -1,13 +1,11 @@
 Frequently Asked Questions
 ==========================
 
-A collection of Frequently Asked Questions (and answers!)
-
 What is the Binder community?
 -----------------------------
 
-A collection of people and technology that aim to make it easy to turn
-computational material (e.g. jupyter notebooks, R scripts, and environment
+A collection of people that aim to make it easy to turn
+computational material (e.g. Jupyter notebooks, R scripts, and environment
 files) into computational environments (a Docker image) and serve this
 environment through the cloud. The underlying technology that manages this
 process is called `BinderHub`_.
@@ -17,8 +15,8 @@ What is BinderHub?
 
 `BinderHub`_ is the server technology that
 turns computational material into
-interactive computational environments in the cloud. It utilizes the
-`Kubernetes flavor of JupyterHub <https://z2jh.jupyter.org>`_ in order to
+interactive computational environments in the cloud. It utilizes
+`Kubernetes and JupyterHub <https://z2jh.jupyter.org>`_ in order to
 simplify the deployment process and make it easy to scale.
 
 What is ``mybinder.org``?
@@ -27,7 +25,7 @@ What is ``mybinder.org``?
 ``mybinder.org`` is a single deployment of a BinderHub instance, managed by
 the Binder community. It serves as both a public service and a demonstration
 of the BinderHub technology, though it is by no means the only BinderHub
-in existence. If you're interested in deploying your own BinderHub for you
+in existence. If you're interested in deploying your own BinderHub for your
 own uses, please see the `BinderHub documentation <BinderHub_>`_
 and don't hesitate to reach out to the `Binder community <https://gitter.im/jupyterhub/binder>`_.
 
@@ -40,7 +38,7 @@ Yes! Though note that it has relatively :ref:`limited computational resources
 How can ``mybinder.org`` be free?
 ---------------------------------
 
-The Binder project has a grant from the Moore foundation to pay for the
+The Binder project has a grant from the Moore Foundation to sustain the
 cloud resources running ``mybinder.org``. In the future we hope to see more
 public BinderHub services running that can form a collection of community
 resources for interactive cloud computing.

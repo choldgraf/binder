@@ -1,0 +1,146 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to the Binder documentation &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Preparing a repository for Binder" href="preparing.html" />
+    <link rel="prev" title="Binder Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-the-binder-documentation">
+<h1>Welcome to the Binder documentation<a class="headerlink" href="#welcome-to-the-binder-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-can-i-do-with-binder">
+<h2>What can I do with Binder?<a class="headerlink" href="#what-can-i-do-with-binder" title="Permalink to this headline">¶</a></h2>
+<p>Binder makes it simple to generate reproducible computing environments from a
+Git repository. Binder uses the BinderHub technology to generate a Docker
+image from this repository. The image will have all the components that you
+specify along with the Jupyter Notebooks inside. You will be able to share a URL
+with users that can immediately begin interacting with this environment via the
+cloud.</p>
+</div>
+<div class="section" id="generating-a-sharable-binder-link">
+<h2>Generating a sharable Binder link<a class="headerlink" href="#generating-a-sharable-binder-link" title="Permalink to this headline">¶</a></h2>
+<p>You may share a link that generates a Binder. To generate a link for your
+Binder repository, type in the URL of the repository in the Binder UI and
+click the small carrot next to the <code class="docutils literal"><span class="pre">Launch</span></code> button. This will open a popup
+where you can display and select the text for your link.</p>
+<p>The link structure is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://beta.mybinder.org/v2/gh/&lt;org-name&gt;/&lt;repo-name&gt;/&lt;branch|commit|tag&gt;?filepath=&lt;path/to/notebook.ipynb&gt;
+</pre></div>
+</div>
+<p>Share this link with anyone (i.e. colleagues, students) who would like to use
+your Binder.</p>
+</div>
+<div class="section" id="what-technology-does-binder-use">
+<h2>What technology does Binder use?<a class="headerlink" href="#what-technology-does-binder-use" title="Permalink to this headline">¶</a></h2>
+<p>Binder combines several open-source technologies, especially:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://repo2docker.readthedocs.org">repo2docker</a>, for quickly generating
+Docker images from a GitHub repository.</li>
+<li><a class="reference external" href="https://z2jh.jupyter.org">JupyterHub</a>, for connecting a built Docker
+image to cloud computation and a user-facing web portal.</li>
+<li><a class="reference external" href="https://binderhub.readthedocs.org">BinderHub</a>, for gluing the above two
+tools together to create the Binder experience.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to the Binder documentation</a><ul>
+<li><a class="reference internal" href="#what-can-i-do-with-binder">What can I do with Binder?</a></li>
+<li><a class="reference internal" href="#generating-a-sharable-binder-link">Generating a sharable Binder link</a></li>
+<li><a class="reference internal" href="#what-technology-does-binder-use">What technology does Binder use?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Binder Documentation</a></li>
+      <li>Next: <a href="preparing.html" title="next chapter">Preparing a repository for Binder</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/introduction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

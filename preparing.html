@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Preparing a repository for Binder &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using a Dockerfile" href="dockerfile.html" />
+    <link rel="prev" title="Welcome to the Binder documentation" href="introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="preparing-a-repository-for-binder">
+<span id="preparing-repositories"></span><h1>Preparing a repository for Binder<a class="headerlink" href="#preparing-a-repository-for-binder" title="Permalink to this headline">¶</a></h1>
+<p>You can do this by making sure your repo contains:</p>
+<ul class="simple">
+<li>A collection of Jupyter Notebooks. These notebooks will be made available to
+users of your Binder.</li>
+<li>One (or many) text files that specify the requirements of your code. For
+example, a <code class="docutils literal"><span class="pre">requirements.txt</span></code> or <code class="docutils literal"><span class="pre">environment.yml</span></code> file.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For a complete guide to configuring your repository for Binder with text
+files, see the <a class="reference external" href="http://repo2docker.readthedocs.io/en/latest/usage.html#preparing-your-repository">repo2docker configuration guide</a>.
+For a list of sample repositories for use with Binder, see the
+<a class="reference external" href="sample_repos.html">Sample Binder Repositories</a> page.</p>
+</div>
+<p>Verify, and add if needed, the files specified above to the repository.
+Once that’s done, navigate to <code class="docutils literal"><span class="pre">mybinder.org</span></code> and insert the URL for
+your git repository. Press <code class="docutils literal"><span class="pre">Launch</span></code> to automatically create your Binder.
+The Binder service will be automatically send you to a live Jupyter session
+connected to this repository.</p>
+<p>If a previous version of the repository has already been built, Binder will
+only build a new one if the git hashes don’t match. If Binder When Binder
+<em>doesn’t</em> need to build a repository, the process of connecting to the live
+computational environment is much faster.</p>
+<div class="section" id="use-cases">
+<h2>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+<p>Below are some example use-cases and their respective repository
+configuration.</p>
+<p>For a full guide on how to configure your repository for
+Binder, see the <a class="reference external" href="http://repo2docker.readthedocs.io/en/latest/usage.html#preparing-your-repository">repo2docker configuration guide</a>.
+For a list of sample repositories for use with Binder, see the
+<a class="reference external" href="sample_repos.html">Sample Binder Repositories</a> page.</p>
+<div class="section" id="simple-python-dependencies">
+<h3>Simple Python dependencies<a class="headerlink" href="#simple-python-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Many repositories already contain a <code class="docutils literal"><span class="pre">requirements.txt</span></code> specifying the
+dependencies of that repository. For ‘simple to install’ dependencies, a
+<code class="docutils literal"><span class="pre">requirements.txt</span></code> should meet your needs. To generate a <code class="docutils literal"><span class="pre">requirements.txt</span></code> from
+the environment you have locally use <code class="docutils literal"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code>. This
+will list all packages you have installed, and can be a starting point for
+constructing your <code class="docutils literal"><span class="pre">requirements.txt</span></code>. We recommend you only list those
+packages you really need to successfully build the repository.</p>
+<p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/requirements">binder-examples/requirements</a>
+repository to see an example.</p>
+</div>
+<div class="section" id="using-conda-packages">
+<h3>Using conda packages<a class="headerlink" href="#using-conda-packages" title="Permalink to this headline">¶</a></h3>
+<p>For ‘complex to install’ packages, like <code class="docutils literal"><span class="pre">geopandas</span></code>, we
+recommend using the <a class="reference external" href="https://conda.io/docs/index.html">conda package manager</a>.
+To specify your dependencies create an <code class="docutils literal"><span class="pre">environment.yml</span></code> listing the packages
+and versions required. For syntax help read <a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">create an environment file manually</a>
+from the conda documentation.</p>
+<p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/conda">binder-examples/conda</a>
+repository to see an example.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Packages that require <code class="docutils literal"><span class="pre">pip</span></code> for installation can be specified in
+the <code class="docutils literal"><span class="pre">environment.yml</span></code> file.  We recommend this approach instead of having
+a <code class="docutils literal"><span class="pre">requirements.txt</span></code> and an <code class="docutils literal"><span class="pre">environment.yml</span></code> in the same repository.
+See <a class="reference external" href="https://github.com/binder-examples/python-conda_pip">binder-examples/python-conda_pip</a>.</p>
+</div>
+</div>
+<div class="section" id="using-python2">
+<h3>Using Python2<a class="headerlink" href="#using-python2" title="Permalink to this headline">¶</a></h3>
+<p>To use python 2.7 for your repository create a <code class="docutils literal"><span class="pre">runtime.txt</span></code> with
+<code class="docutils literal"><span class="pre">python-2.7</span></code> as only content. This will install a python2 environment in
+addition to the default python environment. The contents of <code class="docutils literal"><span class="pre">requirements.txt</span></code>
+are installed into the python2 environment.</p>
+<p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/python2_runtime">binder-examples/python2_runtime</a>
+repository to see an example.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure that you save your notebooks with a python2 kernel activated,
+as this defines which kernel Binder will use when a notebook is opened.
+The active kernel is displayed in the upper right corner of the notebook.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you also wish to install dependencies into the python3 environment,
+include a file called <code class="docutils literal"><span class="pre">requirements3.txt</span></code>. The packages inside it will be
+installed into the python3 environment.</p>
+</div>
+</div>
+<div class="section" id="executing-post-build-commands">
+<h3>Executing post-build commands<a class="headerlink" href="#executing-post-build-commands" title="Permalink to this headline">¶</a></h3>
+<p>You might need to run arbitrary commands at the end of the build process. Place
+these in the <code class="docutils literal"><span class="pre">postBuild</span></code> file and make it executable. One use case is having
+a repository that contains a Python package and examples that use the package.
+In this case you can run <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> from the <code class="docutils literal"><span class="pre">postBuild</span></code>
+file to avoid having to place your package in the <code class="docutils literal"><span class="pre">requirements.txt</span></code>. It is
+also useful for activating notebook extensions you installed via a
+<code class="docutils literal"><span class="pre">requirements.txt</span></code> directive earlier.</p>
+<p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/jupyter-extension">binder-examples/jupyter-extension</a>
+repository to see an example.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Preparing a repository for Binder</a><ul>
+<li><a class="reference internal" href="#use-cases">Use cases</a><ul>
+<li><a class="reference internal" href="#simple-python-dependencies">Simple Python dependencies</a></li>
+<li><a class="reference internal" href="#using-conda-packages">Using conda packages</a></li>
+<li><a class="reference internal" href="#using-python2">Using Python2</a></li>
+<li><a class="reference internal" href="#executing-post-build-commands">Executing post-build commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Welcome to the Binder documentation</a></li>
+      <li>Next: <a href="dockerfile.html" title="next chapter">Using a Dockerfile</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/preparing.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/preparing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

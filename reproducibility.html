@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tips for ensuring reproducibility with Binder &#8212; Binder 0.1b documentation</title>
+    <title>Tips for reproducibility &#8212; Binder 0.1b documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="next" title="Sample Binder Repositories" href="sample_repos.html" />
     <link rel="prev" title="Using a Dockerfile" href="dockerfile.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -41,15 +41,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tips-for-ensuring-reproducibility-with-binder">
-<h1>Tips for ensuring reproducibility with Binder<a class="headerlink" href="#tips-for-ensuring-reproducibility-with-binder" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tips-for-reproducibility">
+<h1>Tips for reproducibility<a class="headerlink" href="#tips-for-reproducibility" title="Permalink to this headline">¶</a></h1>
 <p>Binder will create a new Docker image the first time is run with a repository.
 From then on, a new image will only be created if the commit hash changes
 (if you’re linking Binder to a branch and not a specific commit hash). Here
 are some tips to ensure reproducibility of your Binder links even if you must
 re-build your repository image:</p>
-<div class="section" id="pin-your-dependencies">
-<h2>Pin your dependencies<a class="headerlink" href="#pin-your-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pin-dependencies">
+<h2>Pin dependencies<a class="headerlink" href="#pin-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>When you install a dependency, include its version number (depending on the
 language you use, the exact syntax may vary). E.g., don’t just specify <code class="docutils literal"><span class="pre">numpy</span></code>,
 specify <code class="docutils literal"><span class="pre">numpy==1.12.0</span></code>.</p>
@@ -77,8 +77,8 @@ see <a class="reference internal" href="dockerfile.html"><span class="doc">Using
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Tips for ensuring reproducibility with Binder</a><ul>
-<li><a class="reference internal" href="#pin-your-dependencies">Pin your dependencies</a></li>
+<li><a class="reference internal" href="#">Tips for reproducibility</a><ul>
+<li><a class="reference internal" href="#pin-dependencies">Pin dependencies</a></li>
 <li><a class="reference internal" href="#using-dockerfiles">Using Dockerfiles</a></li>
 </ul>
 </li>
@@ -88,7 +88,7 @@ see <a class="reference internal" href="dockerfile.html"><span class="doc">Using
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="dockerfile.html" title="previous chapter">Using a Dockerfile</a></li>
-      <li>Next: <a href="faq.html" title="next chapter">Frequently Asked Questions</a></li>
+      <li>Next: <a href="sample_repos.html" title="next chapter">Sample Binder Repositories</a></li>
   </ul></li>
 </ul>
 </div>
@@ -117,7 +117,7 @@ see <a class="reference internal" href="dockerfile.html"><span class="doc">Using
       &copy;2017, The Binder Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
