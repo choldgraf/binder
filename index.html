@@ -69,6 +69,12 @@ organization for sample Binder repositories demonstrating its functionality.</p>
 <li class="toctree-l2"><a class="reference internal" href="using.html#use-cases">Use cases</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="user-guidelines.html">Binder Usage Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guidelines.html#temporary-banning">Temporary Banning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guidelines.html#maximum-concurrent-users-for-a-repository">Maximum Concurrent Users for a Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guidelines.html#reporting-abuse">Reporting Abuse</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -89,10 +95,12 @@ you can do with Binder.</p>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#rstudio-in-binder-using-a-dockerfile">RStudio in Binder using a Dockerfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#specifying-a-python-2-environment-with-runtime-txt">Specifying a Python 2 environment with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#enabling-jupyter-extensions-with-post-build-commands">Enabling Jupyter Extensions with post-build commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#using-anaconda-with-pip-in-the-same-build">Using anaconda with pip in the same build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#using-conda-with-pip-in-the-same-build">Using conda with pip in the same build</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#creating-interactive-presentations-on-binder-with-rise">Creating interactive presentations on Binder with RISE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#creating-webapps-with-binder">Creating webapps with Binder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_repos.html#using-a-docker-image-from-the-jupyter-docker-stacks-repository">Using a Docker image from the Jupyter <code class="docutils literal"><span class="pre">docker-stacks</span></code> repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#mixing-python-2-and-3-kernels-with-runtime-txt">Mixing Python 2 and 3 kernels with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_repos.html#installing-packages-from-apt-with-apt-txt">Installing packages from apt with <code class="docutils literal"><span class="pre">apt.txt</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -119,11 +127,20 @@ as resources for more information.</p>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-binder-community">What is the Binder community?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-binderhub">What is BinderHub?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-mybinder-org">What is <code class="docutils literal"><span class="pre">mybinder.org</span></code>?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#is-mybinder-org-free">Is <code class="docutils literal"><span class="pre">mybinder.org</span></code> free?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-mybinder-org-be-free">How can <code class="docutils literal"><span class="pre">mybinder.org</span></code> be free?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#is-mybinder-org-free-to-use">Is <code class="docutils literal"><span class="pre">mybinder.org</span></code> free to use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-much-does-running-mybinder-org-cost">How much does running <code class="docutils literal"><span class="pre">mybinder.org</span></code> cost?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-mybinder-org-be-free-to-use">How can <code class="docutils literal"><span class="pre">mybinder.org</span></code> be free to use?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-much-memory-am-i-given-when-using-binder">How much memory am I given when using Binder?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-a-binder">What is a Binder?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-push-data-from-my-binder-session-back-to-my-repository">Can I push data from my Binder session back to my repository?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-put-my-configuration-files-outside-the-root-of-my-repository">Can I put my configuration files outside the root of my repository?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-factors-influence-how-long-it-takes-a-binder-session-to-start">What factors influence how long it takes a Binder session to start?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#what-can-i-do-if-mybinder-org-does-not-meet-my-needs">What can I do if <code class="docutils literal"><span class="pre">mybinder.org</span></code> does not meet my needs?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html"><code class="docutils literal"><span class="pre">mybinder.org</span></code> status and reliability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reliability.html#site-reliability-goals">Site Reliability Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reliability.html#site-metrics">Site metrics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="more-info.html">More information about Binder</a><ul>

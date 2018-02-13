@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sample Binder Repositories" href="sample_repos.html" />
+    <link rel="next" title="Binder Usage Guidelines" href="user-guidelines.html" />
     <link rel="prev" title="Welcome to the Binder documentation" href="introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -53,8 +53,13 @@ your Binder repository should contain at least:</p>
 <ul class="simple">
 <li>The code you want users to run. This might be a collection of Jupyter
 notebooks or scripts.</li>
-<li>One (or many) text files that specify the requirements of your code.
-For a complete list, see <a class="reference internal" href="#config-files"><span class="std std-ref">Supported configuration files</span></a>.</li>
+<li>Configuration files (one or more text files) that specify the requirements
+for building your project’s code. For a complete list of supported files,
+see <a class="reference internal" href="#config-files"><span class="std std-ref">Supported configuration files</span></a>. Configuration files may be placed in the root of
+your repository or in a <code class="docutils literal"><span class="pre">binder/</span></code> folder in the repository’s root
+(i.e. <code class="docutils literal"><span class="pre">myproject/binder/</span></code>). If a <code class="docutils literal"><span class="pre">binder/</span></code> folder is used, Binder will
+only read configuration files from that location and will ignore those in
+the repository’s root.</li>
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -169,8 +174,8 @@ alongside Python 3.</p>
 </div>
 <div class="section" id="dockerfile">
 <h4><a class="toc-backref" href="#id14"><code class="docutils literal"><span class="pre">Dockerfile</span></code></a><a class="headerlink" href="#dockerfile" title="Permalink to this headline">¶</a></h4>
-<p>This will be treated as a regular Dockerfile and a regular Docker build will be performed. The presence
-of a Dockerfile will cause all other building behavior to not be triggered.
+<p>This will be treated as a regular Dockerfile and a regular Docker build will be performed.
+The presence of a Dockerfile prevents all other build behavior.
 See the <a class="reference external" href="https://mybinder.readthedocs.io/en/latest/dockerfile.html">Binder Documentation</a> for
 best-practices with Dockerfiles.</p>
 </div>
@@ -320,7 +325,7 @@ repository to see an example.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="introduction.html" title="previous chapter">Welcome to the Binder documentation</a></li>
-      <li>Next: <a href="sample_repos.html" title="next chapter">Sample Binder Repositories</a></li>
+      <li>Next: <a href="user-guidelines.html" title="next chapter">Binder Usage Guidelines</a></li>
   </ul></li>
 </ul>
 </div>

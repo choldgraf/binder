@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preparing a repository for Binder" href="preparing.html" />
+    <link rel="next" title="Using Binder" href="using.html" />
     <link rel="prev" title="Binder Documentation" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -43,6 +43,9 @@
             
   <div class="section" id="welcome-to-the-binder-documentation">
 <h1>Welcome to the Binder documentation<a class="headerlink" href="#welcome-to-the-binder-documentation" title="Permalink to this headline">¶</a></h1>
+<p>For a quick introduction to Binder, and a demonstration of how you can
+make a Binder-ready repository, click the Binder link below:</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/binder-examples/zero-to-binder/master?filepath=intro-to-binder.ipynb"><img alt="https://mybinder.org/badge.svg" src="https://mybinder.org/badge.svg" /></a>
 <div class="section" id="what-can-i-do-with-binder">
 <h2>What can I do with Binder?<a class="headerlink" href="#what-can-i-do-with-binder" title="Permalink to this headline">¶</a></h2>
 <p>Binder makes it simple to generate reproducible computing environments from a
@@ -50,16 +53,26 @@ Git repository. Binder uses the BinderHub technology to generate a Docker
 image from this repository. The image will have all the components that you
 specify along with the Jupyter Notebooks inside. You will be able to share a URL
 with users that can immediately begin interacting with this environment via the
-cloud.</p>
+cloud. Binder’s goal is to enable as many analytic workflows as possible.</p>
+<p>For example, Binder currently supports:</p>
+<ul class="simple">
+<li>Python, Julia, and R kernels (natively, with other kernels possible via a
+Dockerfile) (links for <a class="reference external" href="https://github.com/binder-examples/conda">python</a>,
+<a class="reference external" href="https://github.com/binder-examples/r">R</a>, and <a class="reference external" href="https://github.com/binder-examples/julia-python">Julia</a>)</li>
+<li>Jupyter Notebooks (<a class="reference external" href="https://github.com/binder-examples/python-conda_pip">link</a>)</li>
+<li>Jupyter Lab (<a class="reference external" href="https://github.com/jupyterlab/jupyterlab-demo">link</a>)</li>
+<li>RStudio sessions (<a class="reference external" href="https://github.com/binder-examples/r">link</a>)</li>
+<li>Interactive presentations with RISE (<a class="reference external" href="https://github.com/binder-examples/jupyter-rise">link</a>)</li>
+</ul>
+<p>Among many others workflows!</p>
 </div>
 <div class="section" id="generating-a-sharable-binder-link">
 <h2>Generating a sharable Binder link<a class="headerlink" href="#generating-a-sharable-binder-link" title="Permalink to this headline">¶</a></h2>
 <p>You may share a link that generates a Binder. To generate a link for your
-Binder repository, type in the URL of the repository in the Binder UI and
-click the small carrot next to the <code class="docutils literal"><span class="pre">Launch</span></code> button. This will open a popup
-where you can display and select the text for your link.</p>
+Binder repository, visit <a href="#id4"><span class="problematic" id="id5">`mybinder.org`_</span></a> and type in the information for your repository.
+You will see your Binder link automatically generated as you fill in the form.</p>
 <p>The link structure is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>https://beta.mybinder.org/v2/gh/&lt;org-name&gt;/&lt;repo-name&gt;/&lt;branch|commit|tag&gt;?filepath=&lt;path/to/notebook.ipynb&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://mybinder.org/v2/&lt;provider-name&gt;/&lt;org-name&gt;/&lt;repo-name&gt;/&lt;branch|commit|tag&gt;?filepath=&lt;path/to/notebook.ipynb&gt;
 </pre></div>
 </div>
 <p>Share this link with anyone (i.e. colleagues, students) who would like to use
@@ -102,7 +115,7 @@ tools together to create the Binder experience.</li>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Binder Documentation</a></li>
-      <li>Next: <a href="preparing.html" title="next chapter">Preparing a repository for Binder</a></li>
+      <li>Next: <a href="using.html" title="next chapter">Using Binder</a></li>
   </ul></li>
 </ul>
 </div>

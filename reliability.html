@@ -1,0 +1,137 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mybinder.org status and reliability &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More information about Binder" href="more-info.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="faq.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mybinder-org-status-and-reliability">
+<h1><code class="docutils literal"><span class="pre">mybinder.org</span></code> status and reliability<a class="headerlink" href="#mybinder-org-status-and-reliability" title="Permalink to this headline">¶</a></h1>
+<p>This page serves as a source of information for general Binder status
+updates, building/launching statistics, and reliability metrics.</p>
+<div class="section" id="site-reliability-goals">
+<h2>Site Reliability Goals<a class="headerlink" href="#site-reliability-goals" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">mybinder.org</span></code> is a free service running on open-source software. It should
+be treated as “beta” technology. As such, the Binder team chooses reliability
+goals that are generally less than the gold-standard in industry. Below are
+some general reliability goals we aim for.</p>
+<ul class="simple">
+<li>GOAL 1</li>
+<li>GOAL 2</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">mybinder.org</span></code> team can always use more help in maintaining the
+BinderHub deployment that runs this site. If you’re interested in getting
+involved, please reach out to us on <a class="reference external" href="https://gitter.im/jupyterhub/binder">our Gitter channel</a>.</p>
+</div>
+</div>
+<div class="section" id="site-metrics">
+<h2>Site metrics<a class="headerlink" href="#site-metrics" title="Permalink to this headline">¶</a></h2>
+<p>Below are two key reliability metrics that give an idea for the health of
+the <code class="docutils literal"><span class="pre">mybinder.org</span></code> deployment.</p>
+<iframe src="https://grafana.mybinder.org/dashboard-solo/db/service-level-objectives?orgId=1&panelId=1&from=1517940977444&to=1518545777444&theme=light" style="width: 100%; height: 200px" frameborder="0"></iframe>
+<br />
+<br /><iframe src="https://grafana.mybinder.org/dashboard-solo/db/service-level-objectives?orgId=1&panelId=2&from=1517940892627&to=1518545692627&theme=light" style="width: 100%; height: 200px" frameborder="0"></iframe></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">mybinder.org</span></code> status and reliability</a><ul>
+<li><a class="reference internal" href="#site-reliability-goals">Site Reliability Goals</a></li>
+<li><a class="reference internal" href="#site-metrics">Site metrics</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="faq.html" title="previous chapter">Frequently Asked Questions</a></li>
+      <li>Next: <a href="more-info.html" title="next chapter">More information about Binder</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reliability.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/reliability.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

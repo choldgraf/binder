@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Binder Usage Guidelines &#8212; Binder 0.1b documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sample Binder Repositories" href="sample_repos.html" />
+    <link rel="prev" title="Using Binder" href="using.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="binder-usage-guidelines">
+<h1>Binder Usage Guidelines<a class="headerlink" href="#binder-usage-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>This page details some guidelines and policies that we follow at <code class="docutils literal"><span class="pre">mybinder.org</span></code>.</p>
+<div class="section" id="temporary-banning">
+<h2>Temporary Banning<a class="headerlink" href="#temporary-banning" title="Permalink to this headline">¶</a></h2>
+<p>Temporary banning means that <cite>mybinder.org</cite> will stop building / serving Binder
+sessions for a given repository. This usually happens because of some
+undesired behavior with the repository. Some examples of behavior that could
+result in temporary banning include:</p>
+<ul class="simple">
+<li>A large, unexpected spike in traffic that persists over time.</li>
+<li>Sessions that routinely use a large amount of CPU.</li>
+<li>Sessions that attempt to perform a lot of outgoing networking traffic.</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">mybinder.org</span></code> team uses the following workflow in discussing / deciding
+when to temporarily ban a repository:</p>
+<ul class="simple">
+<li>An issue is created to document why a repo (or group of repos) is being banned</li>
+<li>A PR that implements the ban is opened</li>
+<li>A “bans” tag notes any PRs that created a ban</li>
+<li>The issue stays open until the ban is lifted</li>
+</ul>
+<p>If you are temporarily banned, contact us on the
+<a class="reference external" href="https://gitter.im/jupyterhub/binder">Gitter Channel</a> or
+<a class="reference external" href="https://github.com/jupyterhub/mybinder.org-deploy/issues">Open an Issue</a> to discuss
+how to un-ban the repository.</p>
+</div>
+<div class="section" id="maximum-concurrent-users-for-a-repository">
+<h2>Maximum Concurrent Users for a Repository<a class="headerlink" href="#maximum-concurrent-users-for-a-repository" title="Permalink to this headline">¶</a></h2>
+<p>We don’t want a single repository to dominate all of the traffic to Binder, so
+we’ve set a maximum limit of concurrent user sessions that point to the same
+Binder link. <strong>The maximum number of simultaneous users for a given repo is 100</strong>.
+If you think you have a <em>really</em> good reason for why this number should be
+higher, please <a class="reference external" href="https://github.com/jupyterhub/mybinder.org-deploy/issues">Open an Issue</a>
+to discuss with the community!</p>
+</div>
+<div class="section" id="reporting-abuse">
+<h2>Reporting Abuse<a class="headerlink" href="#reporting-abuse" title="Permalink to this headline">¶</a></h2>
+<p>If you’d like to report any abuse of the <code class="docutils literal"><span class="pre">mybinder.org</span></code> service, please
+<a class="reference external" href="mailto:binder-team&#37;&#52;&#48;googlegroups&#46;com?subject=[ABUSE]your-message-here">click here to send an abuse report</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Binder Usage Guidelines</a><ul>
+<li><a class="reference internal" href="#temporary-banning">Temporary Banning</a></li>
+<li><a class="reference internal" href="#maximum-concurrent-users-for-a-repository">Maximum Concurrent Users for a Repository</a></li>
+<li><a class="reference internal" href="#reporting-abuse">Reporting Abuse</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="using.html" title="previous chapter">Using Binder</a></li>
+      <li>Next: <a href="sample_repos.html" title="next chapter">Sample Binder Repositories</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/user-guidelines.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, The Binder Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/user-guidelines.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

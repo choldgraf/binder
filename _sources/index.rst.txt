@@ -27,6 +27,7 @@ The following sections cover the basics of how to use a Binder service.
 
    introduction
    using
+   user-guidelines
 
 Sample repositories
 -------------------
@@ -51,4 +52,5 @@ as resources for more information.
    dockerfile
    reproducibility
    faq
+   reliability
    more-info
