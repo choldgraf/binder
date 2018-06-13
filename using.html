@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Using Binder &#8212; Binder 0.1b documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1b',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -25,15 +17,14 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Binder Usage Guidelines" href="user-guidelines.html" />
-    <link rel="prev" title="Welcome to the Binder documentation" href="introduction.html" />
+    <link rel="prev" title="Getting started with Binder" href="introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
@@ -56,8 +47,8 @@ notebooks or scripts.</li>
 <li>Configuration files (one or more text files) that specify the requirements
 for building your project’s code. For a complete list of supported files,
 see <a class="reference internal" href="#config-files"><span class="std std-ref">Supported configuration files</span></a>. Configuration files may be placed in the root of
-your repository or in a <code class="docutils literal"><span class="pre">binder/</span></code> folder in the repository’s root
-(i.e. <code class="docutils literal"><span class="pre">myproject/binder/</span></code>). If a <code class="docutils literal"><span class="pre">binder/</span></code> folder is used, Binder will
+your repository or in a <code class="docutils literal notranslate"><span class="pre">binder/</span></code> folder in the repository’s root
+(i.e. <code class="docutils literal notranslate"><span class="pre">myproject/binder/</span></code>). If a <code class="docutils literal notranslate"><span class="pre">binder/</span></code> folder is used, Binder will
 only read configuration files from that location and will ignore those in
 the repository’s root.</li>
 </ul>
@@ -68,35 +59,35 @@ the repository’s root.</li>
 </div>
 <div class="section" id="supported-configuration-files">
 <span id="config-files"></span><h3>Supported configuration files<a class="headerlink" href="#supported-configuration-files" title="Permalink to this headline">¶</a></h3>
-<p>Below is a list of supported configuration files.</p>
+<p>Below is a list of supported configuration files (roughly in the order of build priority).</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#requirements-txt" id="id8"><code class="docutils literal"><span class="pre">requirements.txt</span></code></a></li>
-<li><a class="reference internal" href="#environment-yml" id="id9"><code class="docutils literal"><span class="pre">environment.yml</span></code></a></li>
-<li><a class="reference internal" href="#apt-txt" id="id10"><code class="docutils literal"><span class="pre">apt.txt</span></code></a></li>
-<li><a class="reference internal" href="#postbuild" id="id11"><code class="docutils literal"><span class="pre">postBuild</span></code></a></li>
-<li><a class="reference internal" href="#require" id="id12"><code class="docutils literal"><span class="pre">REQUIRE</span></code></a></li>
-<li><a class="reference internal" href="#runtime-txt" id="id13"><code class="docutils literal"><span class="pre">runtime.txt</span></code></a></li>
-<li><a class="reference internal" href="#dockerfile" id="id14"><code class="docutils literal"><span class="pre">Dockerfile</span></code></a></li>
+<li><a class="reference internal" href="#dockerfile" id="id8"><code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code></a></li>
+<li><a class="reference internal" href="#environment-yml" id="id9"><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li><a class="reference internal" href="#requirements-txt" id="id10"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
+<li><a class="reference internal" href="#require" id="id11"><code class="docutils literal notranslate"><span class="pre">REQUIRE</span></code></a></li>
+<li><a class="reference internal" href="#apt-txt" id="id12"><code class="docutils literal notranslate"><span class="pre">apt.txt</span></code></a></li>
+<li><a class="reference internal" href="#postbuild" id="id13"><code class="docutils literal notranslate"><span class="pre">postBuild</span></code></a></li>
+<li><a class="reference internal" href="#runtime-txt" id="id14"><code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code></a></li>
 </ul>
 </div>
-<div class="section" id="requirements-txt">
-<h4><a class="toc-backref" href="#id8"><code class="docutils literal"><span class="pre">requirements.txt</span></code></a><a class="headerlink" href="#requirements-txt" title="Permalink to this headline">¶</a></h4>
-<p>This specifies a list of python packages that would be installed in a virtualenv (or conda environment).</p>
-<div class="section" id="example-contents">
-<h5>Example Contents<a class="headerlink" href="#example-contents" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">==</span><span class="mf">1.7</span>
-<span class="n">matplotlib</span><span class="o">==</span><span class="mf">2.1</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="dockerfile">
+<h4><a class="toc-backref" href="#id8"><code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code></a><a class="headerlink" href="#dockerfile" title="Permalink to this headline">¶</a></h4>
+<p>This will be treated as a regular Dockerfile and a regular Docker build will be performed.
+The presence of a Dockerfile takes priority over and ignores all other build behavior
+specified in other configuration files.</p>
+<p>In the majority of cases, providing your own Dockerfile is not necessary as the base
+images provide core functionality, compact image sizes, and efficient builds. We recommend
+trying the other configuration files before deciding to use your own Dockerfile.</p>
+<p>See the <a class="reference external" href="https://mybinder.readthedocs.io/en/latest/dockerfile.html">Binder Documentation</a> for
+best-practices with Dockerfiles.</p>
 </div>
 <div class="section" id="environment-yml">
-<h4><a class="toc-backref" href="#id9"><code class="docutils literal"><span class="pre">environment.yml</span></code></a><a class="headerlink" href="#environment-yml" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9"><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a><a class="headerlink" href="#environment-yml" title="Permalink to this headline">¶</a></h4>
 <p>This is a conda environment specification, that lets you install packages with conda.</p>
-<div class="section" id="id2">
-<h5>Example Contents<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
+<div class="section" id="example-contents">
+<h5>Example Contents<a class="headerlink" href="#example-contents" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
   <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
   <span class="o">-</span> <span class="n">defaults</span>
 <span class="n">dependencies</span><span class="p">:</span>
@@ -105,91 +96,90 @@ the repository’s root.</li>
     <span class="o">-</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">gallery</span>
 </pre></div>
 </div>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">You must leave the <code class="docutils literal"><span class="pre">environment.yml</span></code>’s name field empty for this
-to work out of the box.</p>
+</div>
+</div>
+<div class="section" id="requirements-txt">
+<h4><a class="toc-backref" href="#id10"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a><a class="headerlink" href="#requirements-txt" title="Permalink to this headline">¶</a></h4>
+<p>This specifies a list of Python packages that should be installed in a virtualenv (or conda environment).</p>
+<div class="section" id="id2">
+<h5>Example Contents<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">==</span><span class="mf">1.7</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">2.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="require">
+<h4><a class="toc-backref" href="#id11"><code class="docutils literal notranslate"><span class="pre">REQUIRE</span></code></a><a class="headerlink" href="#require" title="Permalink to this headline">¶</a></h4>
+<p>This specifies a list of Julia packages.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using a <code class="docutils literal notranslate"><span class="pre">REQUIRE</span></code> file also requires that the repository contain an
+<code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.</p>
+</div>
+<div class="section" id="id3">
+<h5>Example Contents<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PyPlot</span>
+<span class="n">Stats</span>
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="apt-txt">
-<h4><a class="toc-backref" href="#id10"><code class="docutils literal"><span class="pre">apt.txt</span></code></a><a class="headerlink" href="#apt-txt" title="Permalink to this headline">¶</a></h4>
-<p>A list of debian packages that should be installed. The base image used is usually the latest released
-version of Ubuntu (currently Zesty.)</p>
-<div class="section" id="id3">
-<h5>Example Contents<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cowsay</span>
+<h4><a class="toc-backref" href="#id12"><code class="docutils literal notranslate"><span class="pre">apt.txt</span></code></a><a class="headerlink" href="#apt-txt" title="Permalink to this headline">¶</a></h4>
+<p>A list of Debian packages that should be installed. The base image used is usually the latest released
+version of Ubuntu.</p>
+<div class="section" id="id4">
+<h5>Example Contents<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cowsay</span>
 <span class="n">fortune</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="postbuild">
-<h4><a class="toc-backref" href="#id11"><code class="docutils literal"><span class="pre">postBuild</span></code></a><a class="headerlink" href="#postbuild" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id13"><code class="docutils literal notranslate"><span class="pre">postBuild</span></code></a><a class="headerlink" href="#postbuild" title="Permalink to this headline">¶</a></h4>
 <p>A script that can contain arbitrary commands to be run after the whole repository has been built. If you
 want this to be a shell script, make sure the first line is <cite>#!/bin/bash</cite>.</p>
-<div class="section" id="id4">
-<h5>Example Contents<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">dataset</span><span class="o">&gt;</span>
+<div class="section" id="id5">
+<h5>Example Contents<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">dataset</span><span class="o">&gt;</span>
 <span class="n">python</span> <span class="n">myfile</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>This file must be executable to be used with <code class="docutils literal"><span class="pre">repo2docker</span></code>. To do this,
+<p>This file must be executable to be used with <code class="docutils literal notranslate"><span class="pre">repo2docker</span></code>. To do this,
 run the following:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">postBuild</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">postBuild</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="require">
-<h4><a class="toc-backref" href="#id12"><code class="docutils literal"><span class="pre">REQUIRE</span></code></a><a class="headerlink" href="#require" title="Permalink to this headline">¶</a></h4>
-<p>This specifies a list of Julia packages!</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Using a <code class="docutils literal"><span class="pre">REQUIRE</span></code> file also requires that the repository contain an
-<code class="docutils literal"><span class="pre">environment.yml</span></code> file.</p>
-</div>
-<div class="section" id="id5">
-<h5>Example Contents<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PyPlot</span>
-<span class="n">Stats</span>
-</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="runtime-txt">
-<h4><a class="toc-backref" href="#id13"><code class="docutils literal"><span class="pre">runtime.txt</span></code></a><a class="headerlink" href="#runtime-txt" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id14"><code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code></a><a class="headerlink" href="#runtime-txt" title="Permalink to this headline">¶</a></h4>
 <p>This allows you to control the runtime of Python. To use Python 2,
-put the line <code class="docutils literal"><span class="pre">python-2.7</span></code> in the file. A Python 2 kernel will be installed
+put the line <code class="docutils literal notranslate"><span class="pre">python-2.7</span></code> in the file. A Python 2 kernel will be installed
 alongside Python 3.</p>
 <div class="section" id="id6">
 <h5>Example Contents<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="mf">2.7</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="mf">2.7</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="dockerfile">
-<h4><a class="toc-backref" href="#id14"><code class="docutils literal"><span class="pre">Dockerfile</span></code></a><a class="headerlink" href="#dockerfile" title="Permalink to this headline">¶</a></h4>
-<p>This will be treated as a regular Dockerfile and a regular Docker build will be performed.
-The presence of a Dockerfile prevents all other build behavior.
-See the <a class="reference external" href="https://mybinder.readthedocs.io/en/latest/dockerfile.html">Binder Documentation</a> for
-best-practices with Dockerfiles.</p>
 </div>
 </div>
 </div>
 <div class="section" id="launching-your-binder">
 <h2>Launching your Binder<a class="headerlink" href="#launching-your-binder" title="Permalink to this headline">¶</a></h2>
 <p>Once you have prepared your repository per the instructions above,
-it is time to build and launch your binder-ready repo. Navigate to <code class="docutils literal"><span class="pre">mybinder.org</span></code>
-and insert the URL for your git repository. Press <code class="docutils literal"><span class="pre">Launch</span></code> to automatically create your Binder.
+it is time to build and launch your binder-ready repo. Navigate to <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code>
+and insert the URL for your git repository. Press <code class="docutils literal notranslate"><span class="pre">Launch</span></code> to automatically create your Binder.
 The Binder service will automatically send you to a live Jupyter session
 connected to this repository.</p>
 <p>If a previous version of the repository has already been built, Binder will
-only build a new one if the git hashes don’t match. If Binder When Binder
+only build a new one if the git hashes don’t match. When Binder
 <em>doesn’t</em> need to build a repository, the process of connecting to the live
 computational environment is much faster.</p>
 </div>
@@ -203,38 +193,38 @@ For a list of sample repositories for use with Binder, see the
 <a class="reference external" href="sample_repos.html">Sample Binder Repositories</a> page.</p>
 <div class="section" id="simple-python-dependencies">
 <h3>Simple Python dependencies<a class="headerlink" href="#simple-python-dependencies" title="Permalink to this headline">¶</a></h3>
-<p>Many repositories already contain a <code class="docutils literal"><span class="pre">requirements.txt</span></code> specifying the
+<p>Many repositories already contain a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> specifying the
 dependencies of that repository. For ‘simple to install’ dependencies, a
-<code class="docutils literal"><span class="pre">requirements.txt</span></code> should meet your needs. To generate a <code class="docutils literal"><span class="pre">requirements.txt</span></code> from
-the environment you have locally use <code class="docutils literal"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code>. This
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> should meet your needs. To generate a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> from
+the environment you have locally use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code>. This
 will list all packages you have installed, and can be a starting point for
-constructing your <code class="docutils literal"><span class="pre">requirements.txt</span></code>. We recommend you only list those
+constructing your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. We recommend you only list those
 packages you really need to successfully build the repository.</p>
 <p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/requirements">binder-examples/requirements</a>
 repository to see an example.</p>
 </div>
 <div class="section" id="using-conda-packages">
 <h3>Using conda packages<a class="headerlink" href="#using-conda-packages" title="Permalink to this headline">¶</a></h3>
-<p>For ‘complex to install’ packages, like <code class="docutils literal"><span class="pre">geopandas</span></code>, we
+<p>For ‘complex to install’ packages, like <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, we
 recommend using the <a class="reference external" href="https://conda.io/docs/index.html">conda package manager</a>.
-To specify your dependencies create an <code class="docutils literal"><span class="pre">environment.yml</span></code> listing the packages
+To specify your dependencies create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> listing the packages
 and versions required. For syntax help read <a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">create an environment file manually</a>
 from the conda documentation.</p>
 <p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/conda">binder-examples/conda</a>
 repository to see an example.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Packages that require <code class="docutils literal"><span class="pre">pip</span></code> for installation can be specified in
-the <code class="docutils literal"><span class="pre">environment.yml</span></code> file.  We recommend this approach instead of having
-a <code class="docutils literal"><span class="pre">requirements.txt</span></code> and an <code class="docutils literal"><span class="pre">environment.yml</span></code> in the same repository.
+<p class="last">Packages that require <code class="docutils literal notranslate"><span class="pre">pip</span></code> for installation can be specified in
+the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.  We recommend this approach instead of having
+a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> in the same repository.
 See <a class="reference external" href="https://github.com/binder-examples/python-conda_pip">binder-examples/python-conda_pip</a>.</p>
 </div>
 </div>
 <div class="section" id="using-python2">
 <h3>Using Python2<a class="headerlink" href="#using-python2" title="Permalink to this headline">¶</a></h3>
-<p>To use python 2.7 for your repository create a <code class="docutils literal"><span class="pre">runtime.txt</span></code> with
-<code class="docutils literal"><span class="pre">python-2.7</span></code> as only content. This will install a python2 environment in
-addition to the default python environment. The contents of <code class="docutils literal"><span class="pre">requirements.txt</span></code>
+<p>To use python 2.7 for your repository create a <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code> with
+<code class="docutils literal notranslate"><span class="pre">python-2.7</span></code> as only content. This will install a python2 environment in
+addition to the default python environment. The contents of <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>
 are installed into the python2 environment.</p>
 <p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/python2_runtime">binder-examples/python2_runtime</a>
 repository to see an example.</p>
@@ -247,19 +237,19 @@ The active kernel is displayed in the upper right corner of the notebook.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you also wish to install dependencies into the python3 environment,
-include a file called <code class="docutils literal"><span class="pre">requirements3.txt</span></code>. The packages inside it will be
+include a file called <code class="docutils literal notranslate"><span class="pre">requirements3.txt</span></code>. The packages inside it will be
 installed into the python3 environment.</p>
 </div>
 </div>
 <div class="section" id="executing-post-build-commands">
 <h3>Executing post-build commands<a class="headerlink" href="#executing-post-build-commands" title="Permalink to this headline">¶</a></h3>
 <p>You might need to run arbitrary commands at the end of the build process. Place
-these in the <code class="docutils literal"><span class="pre">postBuild</span></code> file and make it executable. One use case is having
+these in the <code class="docutils literal notranslate"><span class="pre">postBuild</span></code> file and make it executable. One use case is having
 a repository that contains a Python package and examples that use the package.
-In this case you can run <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> from the <code class="docutils literal"><span class="pre">postBuild</span></code>
-file to avoid having to place your package in the <code class="docutils literal"><span class="pre">requirements.txt</span></code>. It is
+In this case you can run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> from the <code class="docutils literal notranslate"><span class="pre">postBuild</span></code>
+file to avoid having to place your package in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. It is
 also useful for activating notebook extensions you installed via a
-<code class="docutils literal"><span class="pre">requirements.txt</span></code> directive earlier.</p>
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> directive earlier.</p>
 <p>Take a look at the <a class="reference external" href="https://github.com/binder-examples/jupyter-extension">binder-examples/jupyter-extension</a>
 repository to see an example.</p>
 </div>
@@ -280,31 +270,31 @@ repository to see an example.</p>
 <li><a class="reference internal" href="#">Using Binder</a><ul>
 <li><a class="reference internal" href="#preparing-a-repository-for-binder">Preparing a repository for Binder</a><ul>
 <li><a class="reference internal" href="#supported-configuration-files">Supported configuration files</a><ul>
-<li><a class="reference internal" href="#requirements-txt"><code class="docutils literal"><span class="pre">requirements.txt</span></code></a><ul>
+<li><a class="reference internal" href="#dockerfile"><code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code></a></li>
+<li><a class="reference internal" href="#environment-yml"><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a><ul>
 <li><a class="reference internal" href="#example-contents">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#environment-yml"><code class="docutils literal"><span class="pre">environment.yml</span></code></a><ul>
+<li><a class="reference internal" href="#requirements-txt"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a><ul>
 <li><a class="reference internal" href="#id2">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#apt-txt"><code class="docutils literal"><span class="pre">apt.txt</span></code></a><ul>
+<li><a class="reference internal" href="#require"><code class="docutils literal notranslate"><span class="pre">REQUIRE</span></code></a><ul>
 <li><a class="reference internal" href="#id3">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#postbuild"><code class="docutils literal"><span class="pre">postBuild</span></code></a><ul>
+<li><a class="reference internal" href="#apt-txt"><code class="docutils literal notranslate"><span class="pre">apt.txt</span></code></a><ul>
 <li><a class="reference internal" href="#id4">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#require"><code class="docutils literal"><span class="pre">REQUIRE</span></code></a><ul>
+<li><a class="reference internal" href="#postbuild"><code class="docutils literal notranslate"><span class="pre">postBuild</span></code></a><ul>
 <li><a class="reference internal" href="#id5">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#runtime-txt"><code class="docutils literal"><span class="pre">runtime.txt</span></code></a><ul>
+<li><a class="reference internal" href="#runtime-txt"><code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code></a><ul>
 <li><a class="reference internal" href="#id6">Example Contents</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dockerfile"><code class="docutils literal"><span class="pre">Dockerfile</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -324,7 +314,7 @@ repository to see an example.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="introduction.html" title="previous chapter">Welcome to the Binder documentation</a></li>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Getting started with Binder</a></li>
       <li>Next: <a href="user-guidelines.html" title="next chapter">Binder Usage Guidelines</a></li>
   </ul></li>
 </ul>
@@ -338,12 +328,14 @@ repository to see an example.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -354,7 +346,7 @@ repository to see an example.</p>
       &copy;2017, The Binder Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

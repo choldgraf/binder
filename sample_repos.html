@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Sample Binder Repositories &#8212; Binder 0.1b documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1b',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -32,8 +24,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
@@ -45,19 +36,21 @@
 <span id="sample-binder-repositories"></span><h1>Sample Binder Repositories<a class="headerlink" href="#sample-binder-repositories" title="Permalink to this headline">¶</a></h1>
 <p>Below we list several sample Binder repositories that
 demonstrate how to compose build files in order to create
-Binders with varying environments.</p>
+Binders with varying environments. You can find all of the
+repositories listed on this page at the
+<a class="reference external" href="https://github.com/binder-examples">binder-examples GitHub organization</a>.</p>
 <hr class="docutils" />
 <div class="section" id="julia-and-python-environments">
 <span id="julia-and-python-environments"></span><h2>Julia and Python environments<a class="headerlink" href="#julia-and-python-environments" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/julia_python/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/julia-python">repo link</a></p>
 <p>This example shows how you can install a Julia and Python environment side-by-side.
-In this repository are <em>both</em> an <code class="docutils literal"><span class="pre">environment.yml</span></code> file as well as a <code class="docutils literal"><span class="pre">REQURE</span></code> file.
+In this repository are <em>both</em> an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file as well as a <code class="docutils literal notranslate"><span class="pre">REQURE</span></code> file.
 The former corresponds to an anaconda python environment, and the latter corresponds
 to a Julia environment. Both kernels will be available to you in a built Binder
 environment.</p>
-<div class="section" id="files">
-<span id="files"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">REQUIRE</span>
+<div class="section" id="files-in-this-repository">
+<span id="files-in-this-repository"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">REQUIRE</span>
 <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">julia</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">python</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">julia</span><span class="o">.</span><span class="n">ipynb</span>
@@ -66,6 +59,7 @@ environment.</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
@@ -73,29 +67,30 @@ environment.</p>
 <div class="section" id="python-environment-with-requirements-txt">
 <span id="python-environment-with-requirements-txt"></span><h2>Python environment with requirements.txt<a class="headerlink" href="#python-environment-with-requirements-txt" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/requirements/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/requirements">repo link</a></p>
-<p>A Binder-compatible repo with a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file.</p>
+<p>A Binder-compatible repo with a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
 <p>Access this Binder at the following URL:</p>
 <p>http://mybinder.org/v2/gh/binder-examples/requirements/master</p>
 <div class="section" id="notes">
 <span id="notes"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal"><span class="pre">requirements.txt</span></code> file should list all Python libraries that your notebooks
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file should list all Python libraries that your notebooks
 depend on, and they will be installed using:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <p>The base Binder image contains no extra dependencies, so be as
 explicit as possible in defining the packages that you need. This includes
 specifying explict versions wherever possible.</p>
-<p>In this example we include the library <code class="docutils literal"><span class="pre">seaborn</span></code>, and our notebook uses it
+<p>In this example we include the library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and our notebook uses it
 to plot a figure.</p>
 </div>
-<div class="section" id="files">
-<span id="id1"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<div class="section" id="files-in-this-repository">
+<span id="id1"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -104,27 +99,28 @@ to plot a figure.</p>
 <div class="section" id="conda-environment-with-environment-yml">
 <span id="conda-environment-with-environment-yml"></span><h2>Conda environment with environment.yml<a class="headerlink" href="#conda-environment-with-environment-yml" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/conda_environment/v1.0?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/conda">repo link</a></p>
-<p>A Binder-compatible repo with an <code class="docutils literal"><span class="pre">environment.yml</span></code> file.</p>
+<p>A Binder-compatible repo with an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.</p>
 <p>Access this Binder at the following URL:</p>
 <p>http://mybinder.org/v2/gh/binder-examples/conda_environment/v1.0?filepath=index.ipynb</p>
 <div class="section" id="notes">
 <span id="id2"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal"><span class="pre">environment.yml</span></code> file should list all Python libraries on which your notebooks
-depend, specified as though they were created using the following <code class="docutils literal"><span class="pre">conda</span></code> commands:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">example</span><span class="o">-</span><span class="n">environment</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file should list all Python libraries on which your notebooks
+depend, specified as though they were created using the following <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">example</span><span class="o">-</span><span class="n">environment</span>
 <span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">&gt;</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
 <p>Note that the only libraries available to you will be the ones specified in
-the <code class="docutils literal"><span class="pre">environment.yml</span></code>, so be sure to include everything that you need!</p>
+the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, so be sure to include everything that you need!</p>
 </div>
-<div class="section" id="files">
-<span id="id3"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<div class="section" id="files-in-this-repository">
+<span id="id3"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -138,17 +134,18 @@ the <code class="docutils literal"><span class="pre">environment.yml</span></cod
 <p>http://mybinder.org/v2/gh/binder-examples/remote_storage/master</p>
 <div class="section" id="notes">
 <span id="id4"></span><h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
-<p>The notebooks use <code class="docutils literal"><span class="pre">boto</span></code> and <code class="docutils literal"><span class="pre">requests</span></code> to load both images and tables from S3.
-The image loading makes use of <code class="docutils literal"><span class="pre">PIL</span></code> and the table loading
-makes use of <code class="docutils literal"><span class="pre">pandas</span></code>.</p>
+<p>The notebooks use <code class="docutils literal notranslate"><span class="pre">boto</span></code> and <code class="docutils literal notranslate"><span class="pre">requests</span></code> to load both images and tables from S3.
+The image loading makes use of <code class="docutils literal notranslate"><span class="pre">PIL</span></code> and the table loading
+makes use of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 </div>
-<div class="section" id="files">
-<span id="id5"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<div class="section" id="files-in-this-repository">
+<span id="id5"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -160,15 +157,15 @@ makes use of <code class="docutils literal"><span class="pre">pandas</span></cod
 <p>This repository demonstrates how to install latex alongside matplotlib
 for Binder. This requires a few different build components:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">apt.txt</span></code> for apt-installing the latex components</li>
-<li><code class="docutils literal"><span class="pre">requirements.txt</span></code> for installing the python dependencies</li>
-<li><code class="docutils literal"><span class="pre">postBuild</span></code> for forcing matplotlib to build the font cache</li>
+<li><code class="docutils literal notranslate"><span class="pre">apt.txt</span></code> for apt-installing the latex components</li>
+<li><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> for installing the python dependencies</li>
+<li><code class="docutils literal notranslate"><span class="pre">postBuild</span></code> for forcing matplotlib to build the font cache</li>
 </ul>
-<p>Thanks to &#64;m-weigand for giving
+<p>Thanks to <a class="reference external" href="https://github.com/m-weigand">m-weigand</a> for giving
 <a class="reference external" href="https://github.com/m-weigand/binder-example-latex-mpl/blob/master/index.ipynb">inspiration for this repo</a>!</p>
-<div class="section" id="files">
-<span id="id6"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">.</span><span class="n">txt</span>
+<div class="section" id="files-in-this-repository">
+<span id="id6"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">postBuild</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
@@ -176,105 +173,116 @@ for Binder. This requires a few different build components:</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="jupyterlab-binder">
 <span id="jupyterlab-binder"></span><h2>JupyterLab + Binder<a class="headerlink" href="#jupyterlab-binder" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/jupyterlab/master?urlpath=lab"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyterlab">repo link</a></p>
-<p>Demonstrate how to use JupyterLab with Binder.</p>
-<p>You can enable JupyterLab for a repository in Binder with the following steps:</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/jupyterlab/master?urlpath=lab/tree/index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyterlab">repo link</a></p>
+<p>JupyterLab is packaged with Binder repositories by default. In order to
+run a JupyterLab session, you have two options:</p>
+<div class="section" id="start-jupyterlab-after-you-start-your-binder">
+<span id="start-jupyterlab-after-you-start-your-binder"></span><h3>Start JupyterLab after you start your Binder<a class="headerlink" href="#start-jupyterlab-after-you-start-your-binder" title="Permalink to this headline">¶</a></h3>
+<p>Do the following:</p>
 <ol class="simple">
-<li>Install the required JupyterLab extensions (see how it is done in this repository)</li>
-<li>Configure the &quot;Path to a notebook file&quot; dropdown to &quot;URL&quot; and set the value to <code class="docutils literal"><span class="pre">lab</span></code></li>
-<li>That's it!</li>
+<li>Launch a Binder instance (e.g., by clicking the Binder badge)</li>
+<li>Replace <code class="docutils literal notranslate"><span class="pre">tree</span></code> at the end of your URL with <code class="docutils literal notranslate"><span class="pre">lab</span></code>.</li>
+<li>That’s it!</li>
 </ol>
-<div class="section" id="files">
-<span id="id7"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">binder</span>
+</div>
+<div class="section" id="create-a-binder-link-that-points-to-jupyterlab">
+<span id="create-a-binder-link-that-points-to-jupyterlab"></span><h3>Create a Binder link that points to JupyterLab<a class="headerlink" href="#create-a-binder-link-that-points-to-jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>You can also create a Binder link that points to JupyterLab by adding the following
+to the end of your link:</p>
+<p><code class="docutils literal notranslate"><span class="pre">?urlpath=lab</span></code></p>
+<p>You can point to a specific file using JupterLab by including a file path
+beginning with <code class="docutils literal notranslate"><span class="pre">tree/</span></code> to the end of <code class="docutils literal notranslate"><span class="pre">urlpath</span></code>, like so:</p>
+<p><code class="docutils literal notranslate"><span class="pre">?urlpath=lab/tree/path/to/my/notebook.ipynb</span></code></p>
+<p>For example, the Binder badge above goes to the following URL:</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://mybinder.org/v2/gh/binder-examples/jupyterlab/master?urlpath=lab/tree/index.ipynb</span></code></p>
+<p>Note: this repository also installs several JupyterLab extensions via a <code class="docutils literal notranslate"><span class="pre">postBuild</span></code> script, allowing
+you to use JupyterLab’s extensions and widgets functionality.</p>
+<p>For a more complete demo of JupyterLab using Binder, see the
+<a class="reference external" href="https://github.com/jupyterlab/jupyterlab-demo">JupyterLab Demo</a>.</p>
+</div>
+<div class="section" id="files-in-this-repository">
+<span id="id7"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">profile</span>
+<span class="o">.</span><span class="n">test</span>
+<span class="o">.</span><span class="n">tmp</span>
+<span class="n">binder</span>
 <span class="n">geojson</span><span class="o">-</span><span class="n">extension</span><span class="o">.</span><span class="n">geojson</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
-</div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="specifying-an-r-environment-with-binder-using-a-dockerfile">
-<span id="specifying-an-r-environment-with-binder-using-a-dockerfile"></span><h2>Specifying an R environment with Binder using a Dockerfile<a class="headerlink" href="#specifying-an-r-environment-with-binder-using-a-dockerfile" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/dockerfile-r/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/dockerfile-r">repo link</a></p>
-<p>While Python and Julia are the only two languages natively supported with
-build files, it's possible to create R Kernels for use with Binder as well.</p>
-<p>This repository shows how you can use a Dockerfile to install R and
-connect it with Jupyter. This lets you run R code from within the Jupyter Notebooks.</p>
-<div class="section" id="files">
-<span id="id8"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
-<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
-</pre></div>
-</div>
-<div class="line-block">
 <div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="rstudio-in-binder-using-a-dockerfile">
-<span id="rstudio-in-binder-using-a-dockerfile"></span><h2>RStudio in Binder using a Dockerfile<a class="headerlink" href="#rstudio-in-binder-using-a-dockerfile" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/dockerfile-rstudio/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/dockerfile-rstudio">repo link</a></p>
-<p>This is a proof-of-concept to deploy a Binder that exposes the
-RStudio UI instead of a Jupyter Notebook. It also installs
-several packages from the tidyverse, and includes a demo
-script to show off functionality.</p>
-<p>To start your RStudio session, click on &quot;new&quot; in the top right,
-and at the bottom will be <code class="docutils literal"><span class="pre">RStudio</span> <span class="pre">Session</span></code>.
-Click that and your RStudio session will begin momentarily!</p>
-<p>See <code class="docutils literal"><span class="pre">instructions.ipynb</span></code> for more details.</p>
-<p><em>Special thanks to Ryan Lovett (&#64;ryanlovett) for figuring out
-RStudio support with JupyterHub</em></p>
-<div class="section" id="files">
-<span id="id9"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
-<span class="n">index</span><span class="o">.</span><span class="n">R</span>
-<span class="n">instructions</span><span class="o">.</span><span class="n">ipynb</span>
-<span class="n">rstudio_ui</span><span class="o">.</span><span class="n">png</span>
+<div class="section" id="specifying-an-r-environment-with-a-runtime-txt-file">
+<span id="specifying-an-r-environment-with-a-runtime-txt-file"></span><h2>Specifying an R environment with a runtime.txt file<a class="headerlink" href="#specifying-an-r-environment-with-a-runtime-txt-file" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter+R: <a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/r/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a></p>
+<p>RStudio: <a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/r/master?urlpath=rstudio"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a></p>
+<p>Binder supports using R + RStudio, with libraries pinned to a specific
+snapshot on <a class="reference external" href="https://mran.microsoft.com/documents/rro/reproducibility">MRAN</a>.</p>
+<p>You need to have a <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code> file that is formatted like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">-&lt;</span><span class="n">YYYY</span><span class="o">&gt;-&lt;</span><span class="n">MM</span><span class="o">&gt;-&lt;</span><span class="n">DD</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where YYYY-MM-DD is a snapshot at MRAN that will be used for installing
+libraries.</p>
+<p>You can also have an <code class="docutils literal notranslate"><span class="pre">install.R</span></code> file that will be executed during build,
+and can be used to install libraries.</p>
+<p>Both <a class="reference external" href="https://www.rstudio.com/">RStudio</a> and <a class="reference external" href="https://irkernel.github.io/">IRKernel</a>
+are installed by default, so you can use either the Jupyter notebook interface or
+the RStudio interface.</p>
+<div class="section" id="files-in-this-repository">
+<span id="id8"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">Rmd</span>
+<span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">install</span><span class="o">.</span><span class="n">R</span>
+<span class="n">runtime</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="specifying-a-python-2-environment-with-runtime-txt">
-<span id="specifying-a-python-2-environment-with-runtime-txt"></span><h2>Specifying a Python 2 environment with <code class="docutils literal"><span class="pre">runtime.txt</span></code><a class="headerlink" href="#specifying-a-python-2-environment-with-runtime-txt" title="Permalink to this headline">¶</a></h2>
+<span id="specifying-a-python-2-environment-with-runtime-txt"></span><h2>Specifying a Python 2 environment with <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code><a class="headerlink" href="#specifying-a-python-2-environment-with-runtime-txt" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/python2_runtime/master"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/python2_runtime">repo link</a></p>
-<p>We can specify various runtime parameters with a <code class="docutils literal"><span class="pre">runtime.txt</span></code> file. In this
+<p>We can specify various runtime parameters with a <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code> file. In this
 repository, we demonstrate how to install python 2 with the environment.</p>
-<p>If you specify <code class="docutils literal"><span class="pre">python-2.7</span></code> in <code class="docutils literal"><span class="pre">runtime.txt</span></code>, then:</p>
+<p>If you specify <code class="docutils literal notranslate"><span class="pre">python-2.7</span></code> in <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code>, then:</p>
 <ul class="simple">
 <li>A python3 environment is created &amp; installed (this is what the notebook runs from)</li>
 <li>A python2 environment is created and registered</li>
-<li>The contents of <code class="docutils literal"><span class="pre">requirements.txt</span></code> are installed into the python2 environment</li>
+<li>The contents of <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> are installed into the python2 environment</li>
 </ul>
 <p><strong>important:</strong>
 Make sure that you save your notebooks with a python 2 kernel activated,
 as this defines which kernel Binder will use when a notebook is opened.</p>
 <p><strong>note:</strong>
 If you <em>also</em> wish to install python 3 dependencies, you may do so
-by including a file called <code class="docutils literal"><span class="pre">requirements3.txt</span></code>. The packages
+by including a file called <code class="docutils literal notranslate"><span class="pre">requirements3.txt</span></code>. The packages
 inside will be installed into the python 3 environment.</p>
-<div class="section" id="files">
-<span id="id10"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<div class="section" id="files-in-this-repository">
+<span id="id9"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">runtime</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -283,10 +291,10 @@ inside will be installed into the python 3 environment.</p>
 <div class="section" id="enabling-jupyter-extensions-with-post-build-commands">
 <span id="enabling-jupyter-extensions-with-post-build-commands"></span><h2>Enabling Jupyter Extensions with post-build commands<a class="headerlink" href="#enabling-jupyter-extensions-with-post-build-commands" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/jupyter-extension/master?filepath=index.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyter-extension">repo link</a></p>
-<p>This example demonstrates how to enable Jupyter extensions with Binder. We'll
-cover a few in this repo because some are idiosyncratic in how they're enabled.</p>
-<p>We accomplish each using a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file to install the extensions,
-then a <code class="docutils literal"><span class="pre">postBuild</span></code> file to enable them.</p>
+<p>This example demonstrates how to enable Jupyter extensions with Binder. We’ll
+cover a few in this repo because some are idiosyncratic in how they’re enabled.</p>
+<p>We accomplish each using a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file to install the extensions,
+then a <code class="docutils literal notranslate"><span class="pre">postBuild</span></code> file to enable them.</p>
 <div class="section" id="ipywidgets">
 <span id="ipywidgets"></span><h3>ipywidgets<a class="headerlink" href="#ipywidgets" title="Permalink to this headline">¶</a></h3>
 <p>Ipywidgets lets you create interactive widgets in your notebook.
@@ -295,19 +303,20 @@ then enable the extension.</p>
 </div>
 <div class="section" id="python-markdown">
 <span id="python-markdown"></span><h3>python-markdown<a class="headerlink" href="#python-markdown" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal"><span class="pre">python-markdown</span></code> extension is useful for interweaving computational
+<p>The <code class="docutils literal notranslate"><span class="pre">python-markdown</span></code> extension is useful for interweaving computational
 cells (e.g., python cells) and markdown cells. As this extension automatically
-runs code in the notebook, you need to be sure to &quot;trust&quot; the notebooks in your
-<code class="docutils literal"><span class="pre">postBuild</span></code> script (see the script in this repo for example).</p>
+runs code in the notebook, you need to be sure to “trust” the notebooks in your
+<code class="docutils literal notranslate"><span class="pre">postBuild</span></code> script (see the script in this repo for example).</p>
 </div>
-<div class="section" id="files">
-<span id="id11"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<div class="section" id="files-in-this-repository">
+<span id="id10"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">postBuild</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -316,18 +325,19 @@ runs code in the notebook, you need to be sure to &quot;trust&quot; the notebook
 <div class="section" id="using-conda-with-pip-in-the-same-build">
 <span id="using-conda-with-pip-in-the-same-build"></span><h2>Using conda with pip in the same build<a class="headerlink" href="#using-conda-with-pip-in-the-same-build" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/python-conda_pip/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/python-conda_pip">repo link</a></p>
-<p>If you use <code class="docutils literal"><span class="pre">environment.yml</span></code>, then Binder will use a Miniconda distribution
-to install your packages. However, you may still want to use <code class="docutils literal"><span class="pre">pip</span></code>. In
-this case, you should <strong>not</strong> use a <code class="docutils literal"><span class="pre">requirements.txt</span></code> file, but instead use
-a <code class="docutils literal"><span class="pre">-</span> <span class="pre">pip</span></code> section in <code class="docutils literal"><span class="pre">environment.yml</span></code>. This repository is an example of how
-to construct your <code class="docutils literal"><span class="pre">environment.yml</span></code> file to accomplish this.</p>
-<div class="section" id="files">
-<span id="id12"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, then Binder will use a Miniconda distribution
+to install your packages. However, you may still want to use <code class="docutils literal notranslate"><span class="pre">pip</span></code>. In
+this case, you should <strong>not</strong> use a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file, but instead use
+a <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">pip</span></code> section in <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>. This repository is an example of how
+to construct your <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file to accomplish this.</p>
+<div class="section" id="files-in-this-repository">
+<span id="id11"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -336,86 +346,96 @@ to construct your <code class="docutils literal"><span class="pre">environment.y
 <div class="section" id="creating-interactive-presentations-on-binder-with-rise">
 <span id="creating-interactive-presentations-on-binder-with-rise"></span><h2>Creating interactive presentations on Binder with RISE<a class="headerlink" href="#creating-interactive-presentations-on-binder-with-rise" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://mybinder.org/v2/gh/binder-examples/jupyter-rise/master?filepath=index.ipynb"><img alt="Binder" src="http://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyter-rise">repo link</a></p>
-<p>In a recent release of RISE, there is support for automatically launching
-the RISE plugin when a notebook is opened. This repository demonstrates how
-to accomplish this for Binder.</p>
-<p>To do this, add an <code class="docutils literal"><span class="pre">autolaunch=true</span></code> configuration
-parameter to a notebook's <code class="docutils literal"><span class="pre">livereveal</span></code> section in the
-metadata. When the notebook is launched, your
-presentation will automatically begin. E.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">...</span>
+<p>RISE allows you to quickly generate a live, interactive presentation from a
+Jupyter Notebook that is connected to the underlying Kernel of the notebook.
+Using a new feature for automatically launching
+the RISE plugin when a notebook is opened, RISE can be used to share interactive
+presentations that run in the cloud with Binder.
+This repository demonstrates how to accomplish this.</p>
+<p>To make your RISE presentation automatically-launch with it is open,
+add an <code class="docutils literal notranslate"><span class="pre">autolaunch=true</span></code> configuration
+parameter to a notebook’s <code class="docutils literal notranslate"><span class="pre">livereveal</span></code> section in the
+metadata. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="s2">&quot;livereveal&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;autolaunch&quot;</span><span class="p">:</span> <span class="n">true</span>
         <span class="p">}</span>
 <span class="o">...</span>
 </pre></div>
 </div>
+<p>When the notebook is launched, your
+presentation will automatically begin.</p>
 <p>See the <a class="reference external" href="https://damianavila.github.io/RISE/">RISE Documentation</a>
 for more information.</p>
-<div class="section" id="files">
-<span id="id13"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<div class="section" id="files-in-this-repository">
+<span id="id12"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="creating-webapps-with-binder">
-<span id="creating-webapps-with-binder"></span><h2>Creating webapps with Binder<a class="headerlink" href="#creating-webapps-with-binder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interactive-apps-from-jupyter-notebooks">
+<span id="interactive-apps-from-jupyter-notebooks"></span><h2>Interactive apps from Jupyter Notebooks<a class="headerlink" href="#interactive-apps-from-jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/appmode/master?urlpath=apps%2Findex.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/appmode">repo link</a></p>
-<p>This repository demonstrates how to create webapps with Binder. This is similar to how Shiny apps work in R.
-Using the <code class="docutils literal"><span class="pre">appmode</span></code> Jupyter plugin, a notebook's code will be run, and then only the markdown cells and
+<p>This repository demonstrates how to create interactive webapps from a Jupyter Notebook.
+This is similar to how Shiny apps work in R.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">appmode</span></code> Jupyter plugin, a notebook’s code will be run, and then only the markdown cells and
 code outputs will be shown.</p>
-<p>You can check out the <code class="docutils literal"><span class="pre">appmode</span></code> repository here: https://github.com/oschuett/appmode</p>
-<div class="section" id="files">
-<span id="id14"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<p>You can check out the <code class="docutils literal notranslate"><span class="pre">appmode</span></code> repository here: https://github.com/oschuett/appmode</p>
+<div class="section" id="files-in-this-repository">
+<span id="id13"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">ipyvolume_demo</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">postBuild</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="using-a-docker-image-from-the-jupyter-docker-stacks-repository">
-<span id="using-a-docker-image-from-the-jupyter-docker-stacks-repository"></span><h2>Using a Docker image from the Jupyter <code class="docutils literal"><span class="pre">docker-stacks</span></code> repository<a class="headerlink" href="#using-a-docker-image-from-the-jupyter-docker-stacks-repository" title="Permalink to this headline">¶</a></h2>
+<span id="using-a-docker-image-from-the-jupyter-docker-stacks-repository"></span><h2>Using a Docker image from the Jupyter <code class="docutils literal notranslate"><span class="pre">docker-stacks</span></code> repository<a class="headerlink" href="#using-a-docker-image-from-the-jupyter-docker-stacks-repository" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/jupyter-stacks/master"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/jupyter-stacks">repo link</a></p>
 <p>Sometimes you just want to inherit from one of the pre-built images
-maintained by the Jupyter Project's <a class="reference external" href="https://github.com/jupyter/docker-stacks">Docker Stacks</a>,
+maintained by the Jupyter Project’s <a class="reference external" href="https://github.com/jupyter/docker-stacks">Docker Stacks</a>,
 and perhaps add just an extra library or two. This example shows you how
 to do that - check out the Dockerfile.</p>
 <p>Note that in this case we are using a docker image that already satisfies
 the <a class="reference external" href="http://mybinder.readthedocs.io/en/latest/dockerfile.html#preparing-your-dockerfile">criteria</a>
-for use on binder, we don't need to install notebook or anything manually.</p>
-<div class="section" id="files">
-<span id="id15"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
+for use on binder, we don’t need to install notebook or anything manually.</p>
+<div class="section" id="files-in-this-repository">
+<span id="id14"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dockerfile</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="mixing-python-2-and-3-kernels-with-runtime-txt">
-<span id="mixing-python-2-and-3-kernels-with-runtime-txt"></span><h2>Mixing Python 2 and 3 kernels with <code class="docutils literal"><span class="pre">runtime.txt</span></code><a class="headerlink" href="#mixing-python-2-and-3-kernels-with-runtime-txt" title="Permalink to this headline">¶</a></h2>
+<span id="mixing-python-2-and-3-kernels-with-runtime-txt"></span><h2>Mixing Python 2 and 3 kernels with <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code><a class="headerlink" href="#mixing-python-2-and-3-kernels-with-runtime-txt" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/python2_with_3/master"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/python2_with_3">repo link</a></p>
 <p>Sometimes you want <em>both</em> Python 2 and Python 3 (e.g., if you have a mixture of notebooks that use each
-version of the language). This repository demonstrates how to handle these cases with <code class="docutils literal"><span class="pre">repo2docker</span></code>. You can
-specify a Python 2.7 environment with the <code class="docutils literal"><span class="pre">runtime.txt</span></code> file. In this case, <code class="docutils literal"><span class="pre">repo2docker</span></code> will install Python 2
+version of the language). This repository demonstrates how to handle these cases with <code class="docutils literal notranslate"><span class="pre">repo2docker</span></code>. You can
+specify a Python 2.7 environment with the <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code> file. In this case, <code class="docutils literal notranslate"><span class="pre">repo2docker</span></code> will install Python 2
 <em>alongside</em> Python 3 (though all commands will default to Python 2). In this case, you can install Python 3 dependencies
-with <code class="docutils literal"><span class="pre">requirements3.txt</span></code>, while a file called <code class="docutils literal"><span class="pre">requirements.txt</span></code> alone will install to the Python 2 environment.</p>
-<div class="section" id="files">
-<span id="id16"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index2</span><span class="o">.</span><span class="n">ipynb</span>
+with <code class="docutils literal notranslate"><span class="pre">requirements3.txt</span></code>, while a file called <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> alone will install to the Python 2 environment.</p>
+<div class="section" id="files-in-this-repository">
+<span id="id15"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index2</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">index3</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">requirements3</span><span class="o">.</span><span class="n">txt</span>
@@ -424,25 +444,89 @@ with <code class="docutils literal"><span class="pre">requirements3.txt</span></
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="installing-packages-from-apt-with-apt-txt">
-<span id="installing-packages-from-apt-with-apt-txt"></span><h2>Installing packages from apt with <code class="docutils literal"><span class="pre">apt.txt</span></code><a class="headerlink" href="#installing-packages-from-apt-with-apt-txt" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-packages-from-apt-repositories">
+<span id="installing-packages-from-apt-repositories"></span><h2>Installing packages from <code class="docutils literal notranslate"><span class="pre">apt</span></code> repositories<a class="headerlink" href="#installing-packages-from-apt-repositories" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/apt_install/master?filepath=index.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/apt_install">repo link</a></p>
 <p>Sometimes you want packages that exist outside of the language-specific packaging
-ecosystems of Python/R/Julia. <code class="docutils literal"><span class="pre">repo2docker</span></code> makes it possible to apt-install packages
+ecosystems of Python/R/Julia. Binder makes it possible to <code class="docutils literal notranslate"><span class="pre">apt-install</span></code> packages
 from the ubuntu apt repository. This repository demonstrates how to do this by specifying
-names in an <code class="docutils literal"><span class="pre">apt.txt</span></code> file.</p>
-<div class="section" id="files">
-<span id="id17"></span><h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">.</span><span class="n">txt</span>
+names in an <code class="docutils literal notranslate"><span class="pre">apt.txt</span></code> file.</p>
+<div class="section" id="files-in-this-repository">
+<span id="id16"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
 <span class="n">postBuild</span>
 </pre></div>
 </div>
 <div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="importing-data-with-quilt">
+<span id="importing-data-with-quilt"></span><h2>Importing data with Quilt<a class="headerlink" href="#importing-data-with-quilt" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/binder-examples/data-quilt/master?filepath=index.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> | <a class="reference external" href="https://github.com/binder-examples/data-quilt">repo link</a></p>
+<div class="section" id="pull-data-into-binder-notebooks">
+<span id="pull-data-into-binder-notebooks"></span><h3>Pull data into Binder notebooks<a class="headerlink" href="#pull-data-into-binder-notebooks" title="Permalink to this headline">¶</a></h3>
+<p>This example uses <a class="reference external" href="http://quiltdata.com">Quilt</a> to inject data packages into a Jupyter notebook.</p>
+<p>Data packages are versioned, immutable snapshots of data. Data packages may contain data of any size. Here is an example of data package: <a class="reference external" href="https://quiltdata.com/package/uciml/iris">uciml/iris</a>.</p>
+</div>
+<div class="section" id="how-to-specify-data-dependencies-in-your-own-binder">
+<span id="how-to-specify-data-dependencies-in-your-own-binder"></span><h3>How to specify data dependencies in your own Binder<a class="headerlink" href="#how-to-specify-data-dependencies-in-your-own-binder" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Add <code class="docutils literal notranslate"><span class="pre">quilt</span></code> to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></li>
+<li>Specify data package dependencies in <code class="docutils literal notranslate"><span class="pre">quilt.yml</span></code> (<a class="reference external" href="https://docs.quiltdata.com/cli.html">docs</a>). For example:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">vgauthier</span><span class="o">/</span><span class="n">DynamicPopEstimate</span>   <span class="c1"># get the latest version</span>
+  <span class="o">-</span> <span class="n">danWebster</span><span class="o">/</span><span class="n">sgRNAs</span><span class="p">:</span><span class="n">a972d92</span>      <span class="c1"># get a specific hash (short hash)</span>
+  <span class="o">-</span> <span class="n">akarve</span><span class="o">/</span><span class="n">sales</span><span class="p">:</span><span class="n">tag</span><span class="p">:</span><span class="n">latest</span>        <span class="c1"># get a specific tag</span>
+  <span class="o">-</span> <span class="n">asah</span><span class="o">/</span><span class="n">snli</span><span class="p">:</span><span class="n">v</span><span class="p">:</span><span class="mf">1.0</span>                <span class="c1"># get a specific version</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li>Include the following lines at the top of <code class="docutils literal notranslate"><span class="pre">postBuild</span></code>. (<code class="docutils literal notranslate"><span class="pre">postBuild</span></code> should be executable: <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">postBuild</span></code> on UNIX, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">update-index</span> <span class="pre">--chmod=+x</span> <span class="pre">postBuild</span></code> for Windows).</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">##!/bin/bash</span>
+quilt install
+</pre></div>
+</div>
+<p>Now you can access the package data in your Jupyter notebooks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">quilt.data.akarve</span> <span class="k">import</span> <span class="n">sales</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">sales</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> 
+      <span class="n">Row</span> <span class="n">ID</span>  <span class="n">Order</span> <span class="n">ID</span> <span class="n">Order</span> <span class="n">Date</span> <span class="n">Order</span> <span class="n">Priority</span>  <span class="n">Order</span> <span class="n">Quantity</span>       <span class="n">Sales</span>  \
+<span class="mi">0</span>          <span class="mi">1</span>         <span class="mi">3</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">13</span>            <span class="n">Low</span>               <span class="mi">6</span>    <span class="mf">261.5400</span>   
+<span class="mi">1</span>         <span class="mi">49</span>       <span class="mi">293</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span>           <span class="n">High</span>              <span class="mi">49</span>  <span class="mf">10123.0200</span>   
+<span class="mi">2</span>         <span class="mi">50</span>       <span class="mi">293</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span>           <span class="n">High</span>              <span class="mi">27</span>    <span class="mf">244.5700</span>   
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="developer">
+<span id="developer"></span><h3>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/quiltdata/quilt">Quilt repository</a></li>
+<li><a class="reference external" href="https://docs.quiltdata.com">Quilt docs</a></li>
+</ul>
+</div>
+<div class="section" id="files-in-this-repository">
+<span id="id17"></span><h3>Files in this repository<a class="headerlink" href="#files-in-this-repository" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">postBuild</span>
+<span class="n">quilt</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -462,72 +546,77 @@ names in an <code class="docutils literal"><span class="pre">apt.txt</span></cod
   <ul>
 <li><a class="reference internal" href="#">Sample Binder Repositories</a><ul>
 <li><a class="reference internal" href="#julia-and-python-environments">Julia and Python environments</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#python-environment-with-requirements-txt">Python environment with requirements.txt</a><ul>
 <li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#conda-environment-with-environment-yml">Conda environment with environment.yml</a><ul>
 <li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#remote-storage-with-binder">Remote Storage with Binder</a><ul>
 <li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#using-latex-with-binder">Using latex with Binder</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#jupyterlab-binder">JupyterLab + Binder</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#start-jupyterlab-after-you-start-your-binder">Start JupyterLab after you start your Binder</a></li>
+<li><a class="reference internal" href="#create-a-binder-link-that-points-to-jupyterlab">Create a Binder link that points to JupyterLab</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#specifying-an-r-environment-with-binder-using-a-dockerfile">Specifying an R environment with Binder using a Dockerfile</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#specifying-an-r-environment-with-a-runtime-txt-file">Specifying an R environment with a runtime.txt file</a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rstudio-in-binder-using-a-dockerfile">RStudio in Binder using a Dockerfile</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#specifying-a-python-2-environment-with-runtime-txt">Specifying a Python 2 environment with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#specifying-a-python-2-environment-with-runtime-txt">Specifying a Python 2 environment with <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code></a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#enabling-jupyter-extensions-with-post-build-commands">Enabling Jupyter Extensions with post-build commands</a><ul>
 <li><a class="reference internal" href="#ipywidgets">ipywidgets</a></li>
 <li><a class="reference internal" href="#python-markdown">python-markdown</a></li>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#using-conda-with-pip-in-the-same-build">Using conda with pip in the same build</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#creating-interactive-presentations-on-binder-with-rise">Creating interactive presentations on Binder with RISE</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#creating-webapps-with-binder">Creating webapps with Binder</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#interactive-apps-from-jupyter-notebooks">Interactive apps from Jupyter Notebooks</a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-a-docker-image-from-the-jupyter-docker-stacks-repository">Using a Docker image from the Jupyter <code class="docutils literal"><span class="pre">docker-stacks</span></code> repository</a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#using-a-docker-image-from-the-jupyter-docker-stacks-repository">Using a Docker image from the Jupyter <code class="docutils literal notranslate"><span class="pre">docker-stacks</span></code> repository</a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mixing-python-2-and-3-kernels-with-runtime-txt">Mixing Python 2 and 3 kernels with <code class="docutils literal"><span class="pre">runtime.txt</span></code></a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#mixing-python-2-and-3-kernels-with-runtime-txt">Mixing Python 2 and 3 kernels with <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code></a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-packages-from-apt-with-apt-txt">Installing packages from apt with <code class="docutils literal"><span class="pre">apt.txt</span></code></a><ul>
-<li><a class="reference internal" href="#files">Files</a></li>
+<li><a class="reference internal" href="#installing-packages-from-apt-repositories">Installing packages from <code class="docutils literal notranslate"><span class="pre">apt</span></code> repositories</a><ul>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#importing-data-with-quilt">Importing data with Quilt</a><ul>
+<li><a class="reference internal" href="#pull-data-into-binder-notebooks">Pull data into Binder notebooks</a></li>
+<li><a class="reference internal" href="#how-to-specify-data-dependencies-in-your-own-binder">How to specify data dependencies in your own Binder</a></li>
+<li><a class="reference internal" href="#developer">Developer</a></li>
+<li><a class="reference internal" href="#files-in-this-repository">Files in this repository</a></li>
 </ul>
 </li>
 </ul>
@@ -551,12 +640,14 @@ names in an <code class="docutils literal"><span class="pre">apt.txt</span></cod
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -567,7 +658,7 @@ names in an <code class="docutils literal"><span class="pre">apt.txt</span></cod
       &copy;2017, The Binder Team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

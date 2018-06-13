@@ -7,19 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Frequently Asked Questions &#8212; Binder 0.1b documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Status of mybinder.org" href="status.html" />
-    <link rel="prev" title="Tips for reproducibility" href="reproducibility.html" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -69,7 +67,7 @@ and don’t hesitate to reach out to the <a class="reference external" href="htt
 </div>
 <div class="section" id="is-mybinder-org-free-to-use">
 <h2>Is <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> free to use?<a class="headerlink" href="#is-mybinder-org-free-to-use" title="Permalink to this headline">¶</a></h2>
-<p>Yes! Though note that it has relatively <a class="reference internal" href="#user-memory"><span class="std std-ref">limited computational resources</span></a>.</p>
+<p>Yes! Though note that it has relatively <a class="reference internal" href="../faq.html#user-memory"><span class="std std-ref">limited computational resources</span></a>.</p>
 </div>
 <div class="section" id="how-much-does-running-mybinder-org-cost">
 <h2>How much does running <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> cost?<a class="headerlink" href="#how-much-does-running-mybinder-org-cost" title="Permalink to this headline">¶</a></h2>
@@ -89,10 +87,9 @@ resources for interactive cloud computing.</p>
 <div class="section" id="how-much-memory-am-i-given-when-using-binder">
 <span id="user-memory"></span><h2>How much memory am I given when using Binder?<a class="headerlink" href="#how-much-memory-am-i-given-when-using-binder" title="Permalink to this headline">¶</a></h2>
 <p>If you or another Binder user clicks on a Binder link, the <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code>
-deployment will run the linked repository. While running, users are guaranteed
-<em>at least</em> 1GB of RAM, with a <em>maximum</em> of 2GB. This means you will always have
-1GB, you may occasionally have between 1 and 2GB, and if you go over 2GB your kernel
-will be restarted.</p>
+deployment will run the linked repository. While running, you are guaranteed
+to have at least 1G of RAM. There is an upper-limit of 4GB (if you use more than
+4GB your kernel will be restarted).</p>
 </div>
 <div class="section" id="how-long-will-my-binder-session-last">
 <h2>How long will my Binder session last?<a class="headerlink" href="#how-long-will-my-binder-session-last" title="Permalink to this headline">¶</a></h2>
@@ -102,15 +99,6 @@ shut down user sessions that have more than 10 minutes of inactivity (if you
 leave your window open, this will be counted as “activity”).</p>
 <p>Binder aims to provide at least 12 hours of session time per user session.
 Beyond that, we cannot guarantee that the session will remain running.</p>
-</div>
-<div class="section" id="can-i-use-mybinder-org-for-a-live-demo-or-workshop">
-<h2>Can I use mybinder.org for a live demo or workshop?<a class="headerlink" href="#can-i-use-mybinder-org-for-a-live-demo-or-workshop" title="Permalink to this headline">¶</a></h2>
-<p>For sure! We hope the demo gods are with you. Please do make sure you have a
-backup plan in case there is a problem with mybinder.org during your workshop
-or demo. Occasionally, service on <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> can be degraded, usually because
-the server is getting a lot of attention somewhere on the
-internet, because we are deploying new versions of software, or the team
-can’t quickly respond to an outage.</p>
 </div>
 <div class="section" id="how-does-mybinder-org-ensure-user-privacy">
 <h2>How does mybinder.org ensure user privacy?<a class="headerlink" href="#how-does-mybinder-org-ensure-user-privacy" title="Permalink to this headline">¶</a></h2>
@@ -126,27 +114,6 @@ to know how Binder is being used, and but won’t be able to identify users.
 We also retain logs of IP addresses for 30 days, which is used solely in
 the case of detecting abuse of the service. If you have suggestions for
 how we can ensure the privacy of our data and users, we’d love to hear it!</p>
-</div>
-<div class="section" id="how-secure-is-mybinder-org">
-<h2>How secure is mybinder.org?<a class="headerlink" href="#how-secure-is-mybinder-org" title="Permalink to this headline">¶</a></h2>
-<p>The Binder team has put in a lot of work to ensure that the mybinder.org
-service runs as secure as possible. However, it is a free, public service
-that is open to the world, and <strong>you should never share sensitive or personal
-information within a Binder repository</strong>. This includes passwords, data that
-shouldn’t be public, API keys, etc.</p>
-<p>You should ensure that sensitive information doesn’t make it into the built
-docker image for your Binder (aka, that it isn’t used in one of your
-configuration files) and that you don’t use this information from within
-a Binder session (e.g. hard-coding an API key into an HTTP request that you
-call from a Jupyter Notebook).</p>
-<p>If you require private information within your
-Binder instance, consider <a class="reference external" href="https://binderhub.readthedocs.io/en/latest/">deploying a BinderHub for your group</a>.</p>
-</div>
-<div class="section" id="where-can-i-report-a-security-issue">
-<h2>Where can I report a security issue?<a class="headerlink" href="#where-can-i-report-a-security-issue" title="Permalink to this headline">¶</a></h2>
-<p>If you find a security vulnerability in with <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code>, please report
-it to <a class="reference external" href="mailto:security&#37;&#52;&#48;ipython&#46;org">security<span>&#64;</span>ipython<span>&#46;</span>org</a>.</p>
-<p>If you prefer to encrypt your security reports, you can use <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/_downloads/ipython_security.asc">this PGP public key</a>.</p>
 </div>
 <div class="section" id="can-i-push-data-from-my-binder-session-back-to-my-repository">
 <h2>Can I push data from my Binder session back to my repository?<a class="headerlink" href="#can-i-push-data-from-my-binder-session-back-to-my-repository" title="Permalink to this headline">¶</a></h2>
@@ -204,21 +171,6 @@ so 1 &gt;&gt; 2 &gt;&gt; 3 in terms of how long each operation takes.</p>
 already been built, there’s a good chance you are in step 2, and the server is
 still pulling the image onto the node that you’ll be using. Please be patient!</p>
 </div>
-<div class="section" id="will-repos-with-fewer-notebooks-launch-faster-should-i-split-my-notebooks-into-smaller-repos">
-<h2>Will repos with fewer notebooks launch faster? Should I split my notebooks into smaller repos?<a class="headerlink" href="#will-repos-with-fewer-notebooks-launch-faster-should-i-split-my-notebooks-into-smaller-repos" title="Permalink to this headline">¶</a></h2>
-<p>Number of notebooks in a repo shouldn’t have any impact on binder launch time,
-assuming a docker image for that repo is already built. It is worth noting, however,
-that there is a limit to the number of instances of a repository that can be active
-at any moment in time.</p>
-</div>
-<div class="section" id="will-repos-that-are-launched-often-get-prioritized-and-launch-faster">
-<h2>Will repos that are launched often get prioritized and launch faster?<a class="headerlink" href="#will-repos-that-are-launched-often-get-prioritized-and-launch-faster" title="Permalink to this headline">¶</a></h2>
-<p>There isn’t any intentional prioritization for repos that are launched frequently,
-however, in practice the repos that launch more often will tend to launch faster.
-This is because if a user pod is put on a node that doesn’t already have the Docker
-image for that repo, then it’ll have to do a Docker pull first, which takes time. If
-a repo is launched a lot, then most likely it will already be on a given node.</p>
-</div>
 <div class="section" id="what-can-i-do-if-mybinder-org-does-not-meet-my-needs">
 <h2>What can I do if <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> does not meet my needs?<a class="headerlink" href="#what-can-i-do-if-mybinder-org-does-not-meet-my-needs" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> uses software called <a class="reference external" href="https://binderhub.readthedocs.io/en/latest">BinderHub</a> to carry out its services.
@@ -238,10 +190,10 @@ documentation for how to customize the user environment.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
 <li><a class="reference internal" href="#what-is-a-binder">What is a Binder?</a></li>
@@ -253,15 +205,10 @@ documentation for how to customize the user environment.</p>
 <li><a class="reference internal" href="#how-can-mybinder-org-be-free-to-use">How can <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> be free to use?</a></li>
 <li><a class="reference internal" href="#how-much-memory-am-i-given-when-using-binder">How much memory am I given when using Binder?</a></li>
 <li><a class="reference internal" href="#how-long-will-my-binder-session-last">How long will my Binder session last?</a></li>
-<li><a class="reference internal" href="#can-i-use-mybinder-org-for-a-live-demo-or-workshop">Can I use mybinder.org for a live demo or workshop?</a></li>
 <li><a class="reference internal" href="#how-does-mybinder-org-ensure-user-privacy">How does mybinder.org ensure user privacy?</a></li>
-<li><a class="reference internal" href="#how-secure-is-mybinder-org">How secure is mybinder.org?</a></li>
-<li><a class="reference internal" href="#where-can-i-report-a-security-issue">Where can I report a security issue?</a></li>
 <li><a class="reference internal" href="#can-i-push-data-from-my-binder-session-back-to-my-repository">Can I push data from my Binder session back to my repository?</a></li>
 <li><a class="reference internal" href="#can-i-put-my-configuration-files-outside-the-root-of-my-repository">Can I put my configuration files outside the root of my repository?</a></li>
 <li><a class="reference internal" href="#what-factors-influence-how-long-it-takes-a-binder-session-to-start">What factors influence how long it takes a Binder session to start?</a></li>
-<li><a class="reference internal" href="#will-repos-with-fewer-notebooks-launch-faster-should-i-split-my-notebooks-into-smaller-repos">Will repos with fewer notebooks launch faster? Should I split my notebooks into smaller repos?</a></li>
-<li><a class="reference internal" href="#will-repos-that-are-launched-often-get-prioritized-and-launch-faster">Will repos that are launched often get prioritized and launch faster?</a></li>
 <li><a class="reference internal" href="#what-can-i-do-if-mybinder-org-does-not-meet-my-needs">What can I do if <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code> does not meet my needs?</a></li>
 </ul>
 </li>
@@ -269,23 +216,21 @@ documentation for how to customize the user environment.</p>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="reproducibility.html" title="previous chapter">Tips for reproducibility</a></li>
-      <li>Next: <a href="status.html" title="next chapter">Status of <code class="docutils literal notranslate"><span class="pre">mybinder.org</span></code></a></li>
+  <li><a href="../index.html">Documentation overview</a><ul>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/faq.rst.txt"
+      <li><a href="../_sources/.ipynb_checkpoints/faq-checkpoint.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -306,7 +251,7 @@ documentation for how to customize the user environment.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/faq.rst.txt"
+      <a href="../_sources/.ipynb_checkpoints/faq-checkpoint.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
